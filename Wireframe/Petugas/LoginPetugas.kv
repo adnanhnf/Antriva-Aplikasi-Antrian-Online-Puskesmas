@@ -1,0 +1,113 @@
+<LoginScreen>:
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'  # Menempatkan konten ke  bagian atas layar
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 50, 20, 20]  # Tambahkan padding ke bawah jika diperlukan
+            spacing: 20
+            size_hint_y: None
+            height: 500  # Atur tinggi layout utama
+
+            # Back button at top-left
+            BoxLayout:
+                size_hint_y: None
+                height: 40
+                Button:
+                    size_hint: None, None
+                    size: 40, 40
+                    pos_hint: {'left': 1}
+                    background_color: 0, 0, 0, 0
+                    Image:
+                        source: 'ButtonBackPetugas.png'
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+                        size: 30, 30
+
+            # Image placeholder
+            Image:
+                source: 'gambar.png'
+                size_hint: None, None
+                size: 250, 250
+                color: 0.15, 0.15, 0.15, 0.15
+                pos_hint: {'center_x': 0.5}
+
+            # Login text
+            Label:
+                text: 'Login'
+                font_size: '40sp'
+                color: 0.3, 0.3, 0.3, 1
+                size_hint_y: None
+                height: 45
+                pos_hint: {'center_x': 0.5}
+                halign: 'left'
+
+            # Lorem ipsum text
+            Label:
+                text: 'Lorem ipsum dolor sit amet'
+                font_size: '16sp'
+                color: 0.5, 0.5, 0.5, 0.7
+                size_hint_y: None
+                height: 45
+                pos_hint: {'center_x': 0.5}
+
+            # Spacer
+            Widget:
+                size_hint_y: None
+                height: 40
+
+            # Login form
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 15
+                size_hint_y: None
+                height: 150
+
+                TextInput:
+                    id: username
+                    hint_text: 'Username'
+                    multiline: False
+                    size_hint: 0.8, None  # Mengatur lebar 80% dari induk
+                    height: 45
+                    padding: [20, 10, 20, 10]
+                    background_color: 0.9, 0.9, 0.9, 1
+                    background_normal: ''
+                    cursor_color: 0.3, 0.3, 0.3, 1
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+
+                TextInput:
+                    id: password
+                    hint_text: 'Password'
+                    multiline: False
+                    password: True
+                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    height: 45
+                    padding: [20, 10, 20, 10]
+                    background_color: 0.9, 0.9, 0.9, 1
+                    background_normal: ''
+                    cursor_color: 0.3, 0.3, 0.3, 1
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                
+                # Spacer to push content down
+                Widget:
+                    size_hint_y: None
+                    height: 30
+
+                Button:
+                    text: 'LOGIN'
+                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    height: 45
+                    background_color: 0.7, 0.7, 0.7, 1
+                    background_normal: ''
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                    on_press: 
+                        root.login()
+                        print("Button pressed!")

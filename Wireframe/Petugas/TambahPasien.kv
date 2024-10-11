@@ -1,0 +1,148 @@
+<TambahPasienScreen>:
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 70
+        padding: [10, 10]
+        
+        Button:
+            size_hint_x: None
+            width: 50
+            background_normal: ''
+            background_color: 1, 1, 1, 0  # Transparan untuk menghilangkan latar belakang default
+            on_press: root.back()
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1  # Warna putih
+                Ellipse:
+                    pos: self.x - 2, self.center_y - self.width / 2 - 2
+                    size: self.width + 4, self.width + 4  # Membuat lingkaran dengan ukuran button
+
+            Image:
+                source: 'Image/ButtonBack.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                size: 28, 28
+        
+        Label:
+            text: '  Tambah Pasien'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            valign: 'middle'
+            halign: 'left'
+            size_hint_x: 1
+            text_size: self.size
+    
+    # Form Fields
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 20]
+        spacing: 10
+
+        Label:
+            text: 'Nama Lengkap'
+            size_hint_y: None
+            height: 30
+            color: 0.2, 0.2, 0.2, 1
+
+        TextInput:
+            multiline: False
+            size_hint_y: None
+            height: 40
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        Label:
+            text: 'NIK'
+            size_hint_y: None
+            height: 30
+            color: 0.2, 0.2, 0.2, 1
+
+        TextInput:
+            multiline: False
+            size_hint_y: None
+            height: 40
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        Label:
+            text: 'Jenis Kelamin'
+            size_hint_y: None
+            height: 30
+            color: 0.2, 0.2, 0.2, 1
+
+        Spinner:
+            text: 'Pilih'
+            values: ['Laki-laki', 'Perempuan']
+            size_hint_y: None
+            height: 40
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            color: 0.2, 0.2, 0.2, 1
+
+        Label:
+            text: 'Alamat'
+            size_hint_y: None
+            height: 30
+            color: 0.2, 0.2, 0.2, 1
+
+        TextInput:
+            multiline: True
+            size_hint_y: None
+            height: 80
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        Label:
+            text: 'No HP'
+            size_hint_y: None
+            height: 30
+            color: 0.2, 0.2, 0.2, 1
+
+        TextInput:
+            multiline: False
+            size_hint_y: None
+            height: 40
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+    # Spacer to push buttons down
+    Widget:
+        size_hint_y: None
+        height: 20
+
+    # Action Buttons
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 70
+        padding: [40, 20]
+        spacing: 20
+
+        Button:
+            text: 'BATAL'
+            background_normal: ''
+            background_color: 0.7, 0.7, 0.7, 1
+            on_press: root.cancel()
+
+        Button:
+            text: 'TAMBAH'
+            background_normal: ''
+            background_color: 0.2, 0.6, 1, 1
+            on_press: root.add_patient()
