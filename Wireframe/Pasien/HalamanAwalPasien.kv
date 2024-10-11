@@ -32,8 +32,6 @@
                 height: 70
                 color: 0.2, 0.2, 0.2, 1
                 bold: True
-                text_size: self.width, None
-                halign: 'center'
         
             Label:
                 text: 'Lorem Ipsum'
@@ -226,87 +224,150 @@
         color: (0, 0.7, 0, 1) if root.is_available else (0.7, 0, 0, 1)  # warna tulisan "Tersedia" dan "Tidak Tersedia"
 
 <QueueScreen>:
-    orientation: 'vertical'
-    padding: 20
-    spacing: 10
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
 
-    # Header
-    BoxLayout:
-        size_hint_y: 0.15
-        Label:
-            text: 'APLIKASI ANTRIAN\nONLINE PUSKESMAS'
-            halign: 'center'
-            font_size: '20sp'
-            bold: True
-            color: 0, 0, 0, 1
-
-    # Status Poli Section
-    BoxLayout:
-        size_hint_y: 0.45
-        orientation: 'vertical'
-        spacing: 10
-        
-        Label:
-            text: 'Status Poli:'
-            size_hint_y: 0.2
-            halign: 'left'
-            font_size: '18sp'
-            bold: True
-            color: 0, 0, 0, 1
-        
-        GridLayout:
-            cols: 2
-            spacing: 10
-            size_hint_y: 0.8
-            
-            PoliBox:
-                id: poli_a
-                poli_id: 'A'
-            
-            PoliBox:
-                id: poli_b
-                poli_id: 'B'
-            
-            PoliBox:
-                id: poli_c
-                poli_id: 'C'
-            
-            PoliBox:
-                id: poli_d
-                poli_id: 'D'
-
-    # Ambil Antrian Button
-    BoxLayout:
-        size_hint_y: 0.2
-        orientation: 'vertical'
-        spacing: 10
-        padding: [20, 10]
-
-        Button:
-            text: 'Ambil Nomor Antrian'
-            size_hint: 0.8, None # Mengatur lebar 80% dari induk
-            font_size: '18sp'
-            background_color: 0.2, 0.6, 1, 1
-            pos_hint: {'center_x': 0.5}  # Posisikan di tengah
-            on_press: 
-                print('Navigate to antrian screen')  # Status tombol telah ditekan
-        
-        # Spacer at bottom
-        Widget:
-            size_hint_y: None
-            height: 20
-
-        # Navigation Bar
         BoxLayout:
-            size_hint_y: 0.1
-            spacing: 10
-            Button:
-                text: 'Beranda'
-            Button:
-                text: 'Antrian'
-            Button:
-                text: 'Notifikasi'
-            Button:
-                text: 'Riwayat'
-            Button:
-                text: 'Profil'
+            orientation: 'vertical'
+            size_hint: None, None
+            width: 500  # Lebar diperkecil
+            height: 600  # Tinggi diperkecil
+            padding: 20
+            spacing: 15  # Menambah jarak antar elemen
+
+            # Header dengan logo dan tulisan Beranda
+            BoxLayout:
+                size_hint_y: None
+                height: 80  # Menambah tinggi untuk header
+                orientation: 'horizontal'
+                padding: [20, 10]  # Jarak antar logo dan teks
+                spacing: 10
+
+                Image:
+                    source: 'path_to_your_logo.png'  # Ganti dengan path gambar logo Anda
+                    size_hint: None, None
+                    size: 50, 50  # Ukuran logo
+                    pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+
+                Label:
+                    text: 'Beranda'
+                    font_size: '24sp'  # Ukuran font lebih besar
+                    bold: True
+                    color: 0, 0, 0, 1
+                    valign: 'middle'
+                    text_size: self.size
+
+                Widget:  # Spacer
+                    size_hint_x: 1
+
+            # Spacer untuk jarak antara header dan teks di bawah header
+            Widget:
+                size_hint_y: None
+                height: 20  # Jarak antara header dan teks
+
+            # Teks di bawah header
+            Label:
+                text: 'APLIKASI ANTRIAN\nONLINE PUSKESMAS'
+                font_size: '24sp'
+                bold: True
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'center'
+                size_hint_y: None
+                height: 70
+                color: 0.2, 0.2, 0.2, 1
+
+            # Spacer untuk jarak antara teks dan status poli
+            Widget:
+                size_hint_y: None
+                height: 10
+
+            # Status Poli Section
+            BoxLayout:
+                size_hint_y: None
+                height: 250  # Ukuran tetap untuk grid poli diperkecil
+                orientation: 'vertical'
+                spacing: 20  # Menambah jarak antara judul dan grid
+
+                Label:
+                    text: 'Status Poli:'
+                    size_hint_y: None
+                    height: 40
+                    font_size: '20sp'
+                    bold: True
+                    color: 0, 0, 0, 1
+                    halign: 'center'
+                    text_size: self.size  # Pusatkan teks
+
+                GridLayout:
+                    cols: 2
+                    spacing: 15  # Jarak antar kotak poli diperkecil
+                    padding: [10, 10]
+                    size_hint_y: None
+                    height: 180  # Ketinggian untuk kotak-kotak poli diperkecil
+
+                    PoliBox:
+                        id: poli_a
+                        poli_id: 'A'
+
+                    PoliBox:
+                        id: poli_b
+                        poli_id: 'B'
+
+                    PoliBox:
+                        id: poli_c
+                        poli_id: 'C'
+
+                    PoliBox:
+                        id: poli_d
+                        poli_id: 'D'
+
+            # Spacer untuk mendorong tombol ke bawah
+            Widget:
+                size_hint_y: None
+                height: 30
+
+            # Tombol Ambil Antrian
+            BoxLayout:
+                size_hint_y: None
+                height: 80  # Lebih tinggi untuk ruang tombol
+                orientation: 'vertical'
+                spacing: 10
+                padding: [20, 10]
+
+                Button:
+                    text: 'Ambil Nomor Antrian'
+                    size_hint: 0.8, None  # Mengatur lebar 80% dari induk
+                    height: 50  # Tinggi tombol lebih besar
+                    font_size: '18sp'
+                    background_color: 0.2, 0.6, 1, 1
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                    on_press: 
+                        print('Navigate to antrian screen')  # Status tombol ditekan
+
+            # Spacer antara tombol dan navigation bar
+            Widget:
+                size_hint_y: None
+                height: 20
+
+            # Navigation Bar sebagai footer
+            BoxLayout:
+                size_hint_y: None
+                height: 60  # Ketinggian navigation bar yang sesuai
+                spacing: 10
+
+                Button:
+                    text: 'Beranda'
+                    font_size: '14sp'
+                Button:
+                    text: 'Antrian'
+                    font_size: '14sp'
+                Button:
+                    text: 'Notifikasi'
+                    font_size: '14sp'
+                Button:
+                    text: 'Riwayat'
+                    font_size: '14sp'
+                Button:
+                    text: 'Profil'
+                    font_size: '14sp'
