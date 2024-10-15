@@ -69,14 +69,25 @@ class QueueScreen(Screen):
                 poli_box.update_status(value[poli_id]['available'])
                 poli_box.poli_name = value[poli_id]['name']  # Mengatur nama poli
 
-class HalamanAwalPasien(App):
+class TakeTheQueueScreen(Screen):
+    def go_back(self):
+        self.manager.current = 'queue'
+    
+    def cancel(self):
+        self.manager.current = 'queue'    
+    
+    def ambil_antrian(self):
+        print("Ambil antrian button pressed")
+
+class MainApp(App):
     def build(self):     
         # Create the screen manager
         sm = ScreenManager()
         sm.add_widget(WelcomeScreen(name='welcome'))
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(QueueScreen(name='queue'))
+        sm.add_widget(TakeTheQueueScreen(name='takethequeue'))
         return sm
 
 if __name__ == '__main__':
-    HalamanAwalPasien().run()
+        MainApp().run()

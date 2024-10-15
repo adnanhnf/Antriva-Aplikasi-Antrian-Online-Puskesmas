@@ -223,7 +223,7 @@
         size_hint_x: 0.2
         color: (0, 0.7, 0, 1) if root.is_available else (0.7, 0, 0, 1)  # warna tulisan "Tersedia" dan "Tidak Tersedia"
 
-<QueueScreen>:
+<QueueScreen>: # Tampilan Beranda Pasien !!
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'center'
@@ -342,8 +342,7 @@
                     font_size: '18sp'
                     background_color: 0.2, 0.6, 1, 1
                     pos_hint: {'center_x': 0.5}  # Posisikan di tengah
-                    on_press: 
-                        print('Navigate to antrian screen')  # Status tombol ditekan
+                    on_press: app.root.current = 'takethequeue'
 
             # Spacer antara tombol dan navigation bar
             Widget:
@@ -371,3 +370,155 @@
                 Button:
                     text: 'Profil'
                     font_size: '14sp'
+
+<TakeTheQueueScreen>: # Tampilan Ambil Antrian !!
+    BoxLayout:
+        orientation: 'vertical'
+
+        # Header Section di bagian atas
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 70
+            padding: [10, 10]
+
+            Button:
+                size_hint_x: None
+                width: 50
+                background_normal: ''
+                background_color: 1, 1, 1, 0  # Transparan
+                on_press: root.go_back()
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  # Warna putih
+                    Ellipse:
+                        pos: self.x - 2, self.center_y - self.width / 2 - 2
+                        size: self.width + 4, self.width + 4  # Lingkaran
+
+                Image:
+                    source: 'Image/ButtonBack.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    size: 28, 28
+
+            Widget:  # Spacer
+                size_hint_x: 0.05  # Tambahkan sedikit jarak antara tombol dan teks
+
+            Label:
+                text: 'Ambil Antrian'
+                font_size: '24sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                valign: 'middle'
+                size_hint_x: 0.01  # Mengatur ukuran agar berada di tengah antara tombol dan pinggir kanan
+
+            Widget:  # Spacer untuk memposisikan teks di tengah
+                size_hint_x: 0.15
+
+        # Spacer between header and form content
+        Widget:
+            size_hint_y: None
+            height: 20
+
+        # Form Fields (Centralized)
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 20]
+            spacing: 10
+            size_hint_y: None
+            height: 350  # Adjust the height to control how much space the form takes up
+            pos_hint: {"center_y": 0.5}  # Centralize form content vertically
+
+            Label:
+                text: 'Nama Lengkap'
+                size_hint_y: None
+                height: 30
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'  # Agar teks berada di kiri
+                valign: 'middle'
+                text_size: self.size  # Agar alignment bekerja dengan baik
+
+            TextInput:
+                multiline: False
+                size_hint_y: None
+                height: 40
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                foreground_color: 0, 0, 0, 1
+                padding: [10, 10]  # Tambahkan padding dalam TextInput
+
+            Label:
+                text: 'Keluhan'
+                size_hint_y: None
+                height: 30
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'  # Agar teks berada di kiri
+                valign: 'middle'
+                text_size: self.size  # Agar alignment bekerja dengan baik
+
+            TextInput:
+                multiline: True
+                size_hint_y: None
+                height: 80
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                foreground_color: 0, 0, 0, 1
+                padding: [10, 10]  # Tambahkan padding dalam TextInput
+
+            Label:
+                text: 'Poli'
+                size_hint_y: None
+                height: 30
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'  # Agar teks berada di kiri
+                valign: 'middle'
+                text_size: self.size  # Agar alignment bekerja dengan baik
+
+            Spinner:
+                text: 'Pilih'
+                values: ['Poli Umum', 'Poli Gigi', 'Poli Anak']
+                size_hint_y: None
+                height: 40
+                background_normal: ''
+                background_color: 0.9, 0.9, 0.9, 1  # Warna abu-abu muda untuk memberi kesan interaktif
+                color: 0.2, 0.2, 0.2, 1
+                border: [1, 1, 1, 1]  # Tambahkan border untuk tampilan lebih jelas
+
+        # Spacer to push buttons down
+        Widget:
+            size_hint_y: None
+            height: 20
+
+        # Action Buttons
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 70  # Sesuaikan tinggi agar lebih proporsional
+            padding: [20, 0]  # Tambahkan padding di sisi kiri dan kanan
+
+            Button:
+                text: 'AMBIL'
+                size_hint_x: 0.45  # Lebar tombol 45%
+                size_hint_y: None
+                height: 50  # Tinggi tombol
+                background_normal: ''
+                background_color: 0.2, 0.6, 1, 1
+                on_press: root.ambil_antrian()
+
+            # Spacer between buttons
+            Widget:
+                size_hint_x: 0.1  # Spacer 10% dari lebar
+
+            Button:
+                text: 'BATAL'
+                size_hint_x: 0.45  # Lebar tombol 45%
+                size_hint_y: None
+                height: 50  # Tinggi tombol
+                background_normal: ''
+                background_color: 0.7, 0.7, 0.7, 1
+                on_press: root.cancel()
+
+        # Spacer at the bottom
+        Widget:
+            size_hint_y: 0.3
