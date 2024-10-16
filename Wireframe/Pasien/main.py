@@ -4,6 +4,8 @@ from kivy.core.window import Window
 from kivy.properties import ObjectProperty, StringProperty, DictProperty, BooleanProperty
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
+import os
+from NavigasiBar.InfoAntrian import InfoQueueScreen
 
 # Set window size
 Window.size = (400, 700)
@@ -77,7 +79,7 @@ class TakeTheQueueScreen(Screen):
         self.manager.current = 'queue'    
     
     def ambil_antrian(self):
-        print("Ambil antrian button pressed")
+        self.manager.current = 'info'
 
 class MainApp(App):
     def build(self):     
@@ -87,6 +89,7 @@ class MainApp(App):
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(QueueScreen(name='queue'))
         sm.add_widget(TakeTheQueueScreen(name='takethequeue'))
+        sm.add_widget(InfoQueueScreen(name= 'info'))
         return sm
 
 if __name__ == '__main__':

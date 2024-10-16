@@ -1,0 +1,105 @@
+<InfoQueueScreen>:
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Warna latar belakang
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'  # Menempatkan konten lebih ke atas layar
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 20, 20, 20]
+            spacing: 20
+            size_hint_y: None
+            height: 600  # Mengatur tinggi keseluruhan layout agar tidak memenuhi layar
+
+            # Header Info Antrian
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 70
+                padding: [10, 10]
+
+            Label:
+                text: 'Info Antrian'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                valign: 'middle'
+
+            # Nomor Antrian Poli
+            Label:
+                text: 'Nomor Antrian Poli X Saat Ini:'
+                font_size: '16sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'center'
+                size_hint_y: None
+                height: 40
+
+            Label:
+                text: '03'  # Ganti dengan nomor antrian aktual
+                font_size: '40sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'center'
+                size_hint_y: None
+                height: 60
+
+            # Nomor Antrian Anda
+            Label:
+                text: 'Nomor Antrian Anda:'
+                font_size: '16sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'center'
+                size_hint_y: None
+                height: 40
+
+            Label:
+                text: '25'  # Ganti dengan nomor antrian aktual
+                font_size: '40sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'center'
+                size_hint_y: None
+                height: 60
+
+            # Estimasi Waktu
+            Button:
+                text: 'ESTIMASI WAKTU 02:30'  # Ganti dengan estimasi waktu aktual
+                font_size: '16sp'
+                background_color: 0.2, 0.2, 0.2, 1  # Warna tombol lebih gelap
+                color: 0.9, 0.9, 0.9, 1  # Warna teks lebih terang
+                size_hint_y: None
+                height: 60
+
+            # Spacer to push the navigation buttons down
+            Widget:
+                size_hint_y: None
+                height: 100
+
+            BoxLayout:
+                size_hint_y: None
+                height: 60  # Ketinggian navigation bar yang sesuai
+                spacing: 10
+
+                Button:
+                    text: 'Beranda'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'queue'
+                Button:
+                    text: 'Antrian'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'info'
+                Button:
+                    text: 'Notifikasi'
+                    font_size: '14sp'
+                Button:
+                    text: 'Riwayat'
+                    font_size: '14sp'
+                Button:
+                    text: 'Profil'
+                    font_size: '14sp'
