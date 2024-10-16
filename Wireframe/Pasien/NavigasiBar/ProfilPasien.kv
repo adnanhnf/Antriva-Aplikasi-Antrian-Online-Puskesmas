@@ -1,0 +1,145 @@
+<ProfilScreen>: # Tampilan Profil Pasien !!
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 70
+        padding: [10, 10]
+
+        Button:
+            text: ''
+            size_hint_x: None
+            width: 50
+            background_normal: 'logo_icon.png'  # Add your logo icon here
+
+        Label:
+            text: 'Profil'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            valign: 'middle'
+
+    # Main Content Section
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 10]
+        spacing: 20
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 200
+            padding: [0, 10]
+            spacing: 10
+
+            # Profile Picture Placeholder
+            Widget:
+                size_hint_y: None
+                height: 130
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    Ellipse:
+                        source: 'profile_placeholder.png'  # Replace with your image path
+                        pos: self.center_x - 50, self.center_y - 50
+                        size: 130, 130
+
+        # Information Section
+        GridLayout:
+            cols: 2
+            row_default_height: 40
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: 10
+
+            Label:
+                text: 'NIK'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+
+            Label:
+                text: '331103xxxxxxxxxxxx'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'right'
+
+            Label:
+                text: 'Nama'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+
+            Label:
+                text: 'Lorem ipsum'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'right'
+
+            Label:
+                text: 'Email'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+
+            Label:
+                text: 'Lorem ipsum'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'right'
+
+            Label:
+                text: 'No. Telp'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+
+            Label:
+                text: '0895xxxxxxxx'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'right'
+
+            Label:
+                text: 'Alamat'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+
+            Label:
+                text: 'Lorem ipsum dolor sit'
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'right'
+
+    # Spacer to push the footer down
+    Widget:
+        size_hint_y: None
+        height: 300
+
+    # Footer Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60  # Footer height
+        padding: [10, 5]  # Footer padding
+        spacing: 5  # Button spacing
+        Button:
+            text: 'Beranda'
+            font_size: '14sp'
+            on_press: app.root.current = 'home'
+        Button:
+            text: 'Antrian'
+            font_size: '14sp'
+            on_press: app.root.current = 'information'
+        Button:
+            text: 'Notifikasi'
+            font_size: '14sp'
+            on_press: app.root.current = 'notification'
+        Button:
+            text: 'Riwayat'
+            font_size: '14sp'
+            on_press: app.root.current = 'history'
+        Button:
+            text: 'Profil'
+            font_size: '14sp'
+            on_press: app.root.current = 'profil'

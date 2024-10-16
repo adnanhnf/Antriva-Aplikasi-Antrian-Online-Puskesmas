@@ -1,0 +1,96 @@
+<NotificationScreen>: # Tampilan Notifikasi Pasien !!
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header layout
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+
+        Image:
+            source: 'path_to_logo.png'
+            size_hint: None, None
+            size: 40, 40
+
+        Label:
+            text: 'Notifikasi'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'left'
+            valign: 'middle'
+
+    # Main content (list of notifications)
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 10]
+        spacing: 10
+
+        Button:
+            text: 'Notifikasi 1'
+            size_hint_y: None
+            height: 60
+            background_color: 0.8, 0.8, 0.8, 1
+            color: 0, 0, 0, 1
+
+        Button:
+            text: 'Notifikasi 2'
+            size_hint_y: None
+            height: 60
+            background_color: 0.8, 0.8, 0.8, 1
+            color: 0, 0, 0, 1
+
+        Button:
+            text: 'Notifikasi 3'
+            size_hint_y: None
+            height: 60
+            background_color: 0.8, 0.8, 0.8, 1
+            color: 0, 0, 0, 1
+
+        Button:
+            text: 'Notifikasi 4'
+            size_hint_y: None
+            height: 60
+            background_color: 0.8, 0.8, 0.8, 1
+            color: 0, 0, 0, 1
+    
+    # Spacer to push the footer down
+    Widget:
+        size_hint_y: None
+        height: 450
+
+    # Footer (menu bar)
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+        spacing: 20
+        Button:
+            text: 'Beranda'
+            font_size: '14sp'
+            on_press: app.root.current = 'home'
+        Button:
+            text: 'Antrian'
+            font_size: '14sp'
+            on_press: app.root.current = 'information'
+        Button:
+            text: 'Notifikasi'
+            font_size: '14sp'
+            on_press: app.root.current = 'notification'
+        Button:
+            text: 'Riwayat'
+            font_size: '14sp'
+            on_press: app.root.current = 'history'
+        Button:
+            text: 'Profil'
+            font_size: '14sp'
+            on_press: app.root.current = 'profil'

@@ -1,4 +1,4 @@
-<InfoQueueScreen>:
+<InfoQueueScreen>: # Tampilan Informasi Antrian !!
     canvas.before:
         Color:
             rgba: 0.95, 0.95, 0.95, 1  # Warna latar belakang
@@ -85,21 +85,23 @@
                 size_hint_y: None
                 height: 60  # Ketinggian navigation bar yang sesuai
                 spacing: 10
-
                 Button:
                     text: 'Beranda'
                     font_size: '14sp'
-                    on_press: app.root.current = 'queue'
+                    on_press: app.root.current = 'home'
                 Button:
                     text: 'Antrian'
                     font_size: '14sp'
-                    on_press: app.root.current = 'info'
+                    on_press: app.root.current = 'information'
                 Button:
                     text: 'Notifikasi'
                     font_size: '14sp'
+                    on_press: app.root.current = 'notification'
                 Button:
                     text: 'Riwayat'
                     font_size: '14sp'
+                    on_press: app.root.current = 'history'
                 Button:
                     text: 'Profil'
                     font_size: '14sp'
+                    on_press: app.root.current = 'profil'

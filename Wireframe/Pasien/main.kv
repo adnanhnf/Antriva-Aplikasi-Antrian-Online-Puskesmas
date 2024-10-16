@@ -202,7 +202,7 @@
                         text: '' 
                         color: 1, 0, 0, 1  # Merah  
 
-<PoliBox>: # Tampilan Beranda Pasien !!
+<PoliBox>: # Tampilan Poli Beranda Pasien !!
     orientation: 'horizontal'
     spacing: 5
     canvas.before:
@@ -223,7 +223,7 @@
         size_hint_x: 0.2
         color: (0, 0.7, 0, 1) if root.is_available else (0.7, 0, 0, 1)  # warna tulisan "Tersedia" dan "Tidak Tersedia"
 
-<QueueScreen>: # Tampilan Beranda Pasien !!
+<HomeScreen>: # Tampilan Beranda Pasien !!
     AnchorLayout:
         anchor_x: 'center'
         anchor_y: 'center'
@@ -358,20 +358,23 @@
                 Button:
                     text: 'Beranda'
                     font_size: '14sp'
-                    on_press: app.root.current = 'queue'
+                    on_press: app.root.current = 'home'
                 Button:
                     text: 'Antrian'
                     font_size: '14sp'
-                    on_press: app.root.current = 'info'
+                    on_press: app.root.current = 'information'
                 Button:
                     text: 'Notifikasi'
                     font_size: '14sp'
+                    on_press: app.root.current = 'notification'
                 Button:
                     text: 'Riwayat'
                     font_size: '14sp'
+                    on_press: app.root.current = 'history'
                 Button:
                     text: 'Profil'
                     font_size: '14sp'
+                    on_press: app.root.current = 'profil'
 
 <TakeTheQueueScreen>: # Tampilan Ambil Antrian !!
     BoxLayout:

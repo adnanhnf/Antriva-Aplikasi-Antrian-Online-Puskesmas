@@ -1,0 +1,153 @@
+<HistoryScreen>: # Tampilan Riwayat Pasien !!
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 70  # Height for the header
+        padding: [10, 10]
+
+        Button:
+            text: ''
+            size_hint_x: None
+            width: 50
+            background_normal: 'path_to_logo.png'  # Add your logo icon here
+
+        Label:
+            text: 'Riwayat'
+            font_size: '20sp'  # Adjusted font size for consistency
+            bold: True
+            color: 0.0, 0.0, 0.0, 1  # Black text
+            valign: 'middle'
+
+    # Main Content Section (Table)
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 0, 10, 0]  # Reduce padding for more compact layout
+        size_hint_y: None
+        height: 250  # Set a fixed height for the table section to move it closer to the header
+
+        GridLayout:
+            cols: 4
+            row_default_height: 40
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: [1, 1]  # Spacing for table borders
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 1  # Gray border color
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+                    width: 1
+
+            # Table headers
+            Label:
+                text: 'No'
+                bold: True
+                color: 0.0, 0.0, 0.0, 1  # Black text
+            Label:
+                text: 'lorem'
+                bold: True
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: 'ipsum'
+                bold: True
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: 'dolor'
+                bold: True
+                color: 0.0, 0.0, 0.0, 1
+
+            # Table Content Rows (adjustable data)
+            Label:
+                text: '1'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+
+            Label:
+                text: '2'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+
+            Label:
+                text: '-'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+
+            Label:
+                text: '-'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+            Label:
+                text: '---'
+                color: 0.0, 0.0, 0.0, 1
+
+    # Spacer to push the footer down
+    Widget:
+        size_hint_y: None
+        height: 470  # Spacer height to push footer down and add space below the table
+
+    # Footer Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60  # Footer height
+        padding: [10, 5]  # Footer padding
+        spacing: 5  # Button spacing
+        Button:
+            text: 'Beranda'
+            font_size: '14sp'
+            on_press: app.root.current = 'home'
+        Button:
+            text: 'Antrian'
+            font_size: '14sp'
+            on_press: app.root.current = 'information'
+        Button:
+            text: 'Notifikasi'
+            font_size: '14sp'
+            on_press: app.root.current = 'notification'
+        Button:
+            text: 'Riwayat'
+            font_size: '14sp'
+            on_press: app.root.current = 'history'
+        Button:
+            text: 'Profil'
+            font_size: '14sp'
+            on_press: app.root.current = 'profil'

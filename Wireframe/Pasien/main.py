@@ -6,6 +6,9 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 import os
 from NavigasiBar.InfoAntrian import InfoQueueScreen
+from NavigasiBar.RiwayatPasien import HistoryScreen
+from NavigasiBar.ProfilPasien import ProfilScreen
+from NavigasiBar.NotifikasiPasien import NotificationScreen
 
 # Set window size
 Window.size = (400, 700)
@@ -23,7 +26,7 @@ class LoginScreen(Screen): # Logika Tampilan Login Pasien !!
         
         # Validasi username dan password
         if username == 'admin' and password == 'admin': 
-            self.manager.current = 'queue' 
+            self.manager.current = 'home' 
         else: 
             self.ids.error_label.text = 'Username atau password salah.' 
     
@@ -48,7 +51,7 @@ class PoliBox(BoxLayout): # Logika Tampilan Beranda Pasien !!
         # Mengupdate status menjadi teks
         self.status_text = 'Tersedia' if status else 'Tidak Tersedia'
 
-class QueueScreen(Screen):
+class HomeScreen(Screen):
     poli_status = DictProperty({
         'A': {'name': 'Poli Umum', 'available': True},
         'B': {'name': 'Poli Gigi', 'available': True},
@@ -73,13 +76,13 @@ class QueueScreen(Screen):
 
 class TakeTheQueueScreen(Screen):
     def go_back(self):
-        self.manager.current = 'queue'
+        self.manager.current = 'home'
     
     def cancel(self):
-        self.manager.current = 'queue'    
+        self.manager.current = 'home'    
     
     def ambil_antrian(self):
-        self.manager.current = 'info'
+        self.manager.current = 'information'
 
 class MainApp(App):
     def build(self):     
@@ -87,9 +90,12 @@ class MainApp(App):
         sm = ScreenManager()
         sm.add_widget(WelcomeScreen(name='welcome'))
         sm.add_widget(LoginScreen(name='login'))
-        sm.add_widget(QueueScreen(name='queue'))
+        sm.add_widget(HomeScreen(name='home'))
         sm.add_widget(TakeTheQueueScreen(name='takethequeue'))
-        sm.add_widget(InfoQueueScreen(name= 'info'))
+        sm.add_widget(InfoQueueScreen(name= 'information'))
+        sm.add_widget(HistoryScreen(name= 'history'))
+        sm.add_widget(ProfilScreen(name= 'profil'))
+        sm.add_widget(NotificationScreen(name= 'notification'))
         return sm
 
 if __name__ == '__main__':
