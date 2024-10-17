@@ -1,0 +1,161 @@
+<DetailAntrianScreen>:
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header layout
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+
+        Image:
+            source: 'path_to_logo.png'
+            size_hint: None, None
+            size: 40, 40
+
+        Label:
+            text: 'Info Antrian'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'left'
+            valign: 'middle'
+
+    # Main content (detail antrian)
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 10]
+        spacing: 20  # Increased spacing for better layout
+
+        # Detail Antrian title
+        Label:
+            text: 'Detail Antrian Pasien'
+            font_size: '24sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: None
+            height: 40
+
+        # Box for No Antrian with upper and lower lines
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [10, 0]  # Removed padding above to reduce spacing
+
+            canvas.before:
+                Color:
+                    rgba: 0.3, 0.3, 0.3, 1
+                Line:
+                    points: self.x, self.top, self.right, self.top
+                    width: 1.5
+
+            Label:
+                text: 'No Antrian Pasien'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: 40
+
+            Label:
+                text: 'XXX'
+                font_size: '36sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: 80
+
+        Widget:  # Used for the second line
+            size_hint_y: None
+            height: 10
+            canvas.before:
+                Color:
+                    rgba: 0.3, 0.3, 0.3, 1
+                Line:
+                    points: self.x, self.y, self.right, self.y
+                    width: 1.5
+
+        # BoxLayout for labels to align to the left
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10  # Reduced spacing for a cleaner layout
+            padding: [20, 0]
+
+            Label:
+                text: 'NIK\nLorem ipsum dolor sit amet'
+                font_size: '18sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'left'  
+                valign: 'middle'
+                size_hint_y: None
+                height: 50
+
+            Label:
+                text: 'TGL ANTRIAN\nLorem-ipsum dolor sit amet'
+                font_size: '18sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'left' 
+                valign: 'middle'
+                size_hint_y: None
+                height: 50
+            
+            Label:
+                text: 'POLI\nLorem ipsum dolor sit amet'
+                font_size: '18sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'left' 
+                valign: 'middle'
+                size_hint_y: None
+                height: 50
+
+        # Buttons for Pelayanan
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 10]
+            spacing: 10
+
+            Button:
+                text: 'PELAYANAN SELESAI'
+                size_hint_y: None
+                height: 45
+                background_color: 0.3, 0.5, 0.8, 1
+                on_press: root.pelayanan_selesai()
+
+            Button:
+                text: 'PELAYANAN DIBATALKAN'
+                size_hint_y: None
+                height: 45
+                background_color: 0.8, 0.2, 0.2, 1
+                on_press: root.pelayanan_dibatalkan()
+
+    # Footer (menu bar)
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+        spacing: 20
+
+        Button:
+            text: 'Beranda'
+            on_press: root.go_to_beranda()
+
+        Button:
+            text: 'Info Antrian'
+            on_press: root.go_to_info_antrian()
+
+        Button:
+            text: 'Kelola Pasien'
+            on_press: root.go_to_kelola_pasien()

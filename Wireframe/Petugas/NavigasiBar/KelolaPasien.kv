@@ -152,21 +152,26 @@
                 width: 150
                 on_press: root.tambah_pasien()
 
-    # Footer Section
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 70
-        padding: [20, 10]
-
-        Button:
-            text: 'Beranda'
-            on_press: print("Navigate to Beranda")
-
-        Button:
-            text: 'Info Antrian'
-            on_press: print("Navigate to Info Antrian")
-
-        Button:
-            text: 'Kelola Pasien'
-            on_press: print("Already on Kelola Pasien")
+    # Navigation Bar sebagai footer di bawah   
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'bottom'
+                
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 60
+                padding: [10, 10]
+                spacing: 20
+                Button:
+                    text: 'Beranda'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'home'
+                Button:
+                    text: 'Info Antrian'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'information'
+                Button:
+                    text: 'KelolaPasien'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'kelola'

@@ -1,0 +1,311 @@
+<WelcomeScreen>: # Tampilan Welcome Petugas !!
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 10  
+
+        Image:
+            # source: 'path_to_your_logo.png'
+            size_hint: None, None
+            size: 500, 400
+            pos_hint: {'center_x': 0.5}
+            color: 0.15, 0.15, 0.15, 0.15
+
+        # Spacer to push content down
+        Widget:
+            size_hint_y: None
+            height: 20
+
+        Label:
+            text: 'APLIKASI ANTRIAN\nONLINE PUSKESMAS'
+            font_size: '24sp'
+            halign: 'center'
+            size_hint_y: None
+            height: 70
+            color: 0.2, 0.2, 0.2, 1
+            bold: True
+            text_size: self.width, None
+            halign: 'center'
+    
+        Label:
+            text: 'Lorem Ipsum'
+            font_size: '20sp'
+            halign: 'center'
+            size_hint_y: None
+            height: 50
+            color: 0.2, 0.2, 0.2, 1
+            bold: False
+            text_size: self.width, None
+            halign: 'center'
+
+        Label:
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            text_size: self.width, None
+            size_hint_y: None
+            height: self.texture_size[1]
+            halign: 'center'
+            color: 0.5, 0.5, 0.5, 1
+            padding: 20, 20
+
+        # Spacer to adjust login button position
+        Widget:
+            size_hint_y: None
+            height: 30
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint_y: None
+            height: 100  # Reduced height
+            padding: [40, 0]  # Added horizontal padding for login button
+
+            Button:
+                text: 'LOGIN'
+                size_hint: (0.7, None)  # Set width to 70% of parent
+                height: 50
+                background_color: 0.2, 0.6, 1, 1
+                pos_hint: {'center_x': 0.5}  # Center horizontally
+                on_press: root.login()
+
+        # Spacer at bottom
+        Widget:
+            size_hint_y: None
+            height: 40
+
+<LoginScreen>: # Tampilan Login Petugas !!
+    username: username
+    password: password
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'  # Menempatkan konten ke  bagian atas layar
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 50, 20, 20]  # Tambahkan padding ke bawah jika diperlukan
+            spacing: 20
+            size_hint_y: None
+            height: 500  # Atur tinggi layout utama
+
+            # Back button at top-left
+            BoxLayout:
+                size_hint_y: None
+                height: 40
+                Button:
+                    size_hint: None, None
+                    size: 40, 40
+                    pos_hint: {'left': 1}
+                    background_color: 0, 0, 0, 0
+                    Image:
+                        source: 'Image/ButtonBack.png'
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+                        size: 30, 30
+
+            # Image placeholder
+            Image:
+                # source: 'gambar.png'
+                size_hint: None, None
+                size: 250, 250
+                color: 0.15, 0.15, 0.15, 0.15
+                pos_hint: {'center_x': 0.5}
+
+            # Login text
+            Label:
+                text: 'Login'
+                font_size: '40sp'
+                color: 0.3, 0.3, 0.3, 1
+                size_hint_y: None
+                height: 45
+                pos_hint: {'center_x': 0.5}
+                halign: 'left'
+
+            # Lorem ipsum text
+            Label:
+                text: 'Lorem ipsum dolor sit amet'
+                font_size: '16sp'
+                color: 0.5, 0.5, 0.5, 0.7
+                size_hint_y: None
+                height: 45
+                pos_hint: {'center_x': 0.5}
+
+            # Spacer
+            Widget:
+                size_hint_y: None
+                height: 40
+
+            # Login form
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 15
+                size_hint_y: None
+                height: 150
+
+                TextInput:
+                    id: username
+                    hint_text: 'Username'
+                    multiline: False
+                    size_hint: 0.8, None  # Mengatur lebar 80% dari induk
+                    height: 45
+                    padding: [20, 10, 20, 10]
+                    background_color: 0.9, 0.9, 0.9, 1
+                    background_normal: ''
+                    cursor_color: 0.3, 0.3, 0.3, 1
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+
+                TextInput:
+                    id: password
+                    hint_text: 'Password'
+                    multiline: False
+                    password: True
+                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    height: 45
+                    padding: [20, 10, 20, 10]
+                    background_color: 0.9, 0.9, 0.9, 1
+                    background_normal: ''
+                    cursor_color: 0.3, 0.3, 0.3, 1
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                
+                # Spacer to push content down
+                Widget:
+                    size_hint_y: None
+                    height: 30
+
+                Button:
+                    text: 'LOGIN'
+                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    height: 45
+                    background_color: 0.7, 0.7, 0.7, 1
+                    background_normal: ''
+                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                    on_press: root.validate_credentials()
+
+                Label: 
+                    id: error_label 
+                    text: '' 
+                    color: 1, 0, 0, 1  # Merah  
+
+<HomeScreen>: # Tampilan Beranda Petugas !!
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+        pos_hint: {'top': 1}  # Memastikan header di atas
+        spacing: 5  # Mengurangi jarak antara logo dan teks
+
+        Image:
+            # source: 'path_to_your_logo.png'  # Ganti dengan path logo
+            size_hint: None, None
+            size: 40, 40  # Ukuran logo
+            pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+            color: 0.15, 0.15, 0.15, 0.15
+            
+        Label:
+            text: 'Beranda'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'left'
+            valign: 'middle'
+            size_hint_x: None  # Mengatur lebar label
+            width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+            text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
+
+    # Main Content
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 30]
+        spacing: 5
+
+        Widget:
+            size_hint_y: None
+            height: 30
+
+        Label:
+            text: 'Selamat datang, Dokter Afifah!'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Label:
+            text: 'Lorem ipsum dolor sit amet'
+            font_size: '16sp'
+            color: 0.3, 0.3, 0.3, 1
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        BoxLayout:
+            size_hint_y: None
+            height: 150
+            padding: [20, 10]
+
+            Image:
+                # source: 'path_to_image_1.png'  # Replace with your image path
+                allow_stretch: True
+                keep_ratio: False
+
+        BoxLayout:
+            size_hint_y: None
+            height: 150
+            padding: [20, 10]
+
+            Image:
+                # source: 'path_to_image_2.png'  # Replace with your image path
+                allow_stretch: True
+                keep_ratio: False
+
+    # Navigation Bar sebagai footer di bawah   
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'bottom'
+                
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 60
+                padding: [10, 10]
+                spacing: 20
+                Button:
+                    text: 'Beranda'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'home'
+                Button:
+                    text: 'Info Antrian'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'information'
+                Button:
+                    text: 'KelolaPasien'
+                    font_size: '14sp'
+                    on_press: app.root.current = 'kelola'

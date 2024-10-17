@@ -1,0 +1,204 @@
+<InfoAntrianScreen>:
+    orientation: 'vertical'
+    
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    # Header Section
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 60
+        padding: [10, 10]
+        pos_hint: {'top': 1}  # Memastikan header di atas
+        spacing: 5  # Mengurangi jarak antara logo dan teks
+
+        Image:
+            # source: 'path_to_your_logo.png'  # Ganti dengan path logo
+            size_hint: None, None
+            size: 40, 40  # Ukuran logo
+            pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+            color: 0.15, 0.15, 0.15, 0.15
+
+        Label:
+            text: 'Info Antrian'
+            font_size: '20sp'
+            bold: True
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'left'
+            valign: 'middle'
+            size_hint_x: None  # Mengatur lebar label
+            width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+            text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
+
+    # Main Content Section (Centered)
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 10]
+        spacing: 10
+        size_hint_y: None
+        height: self.minimum_height + 150  # Adjust height to move content up
+
+        # Centering the label
+        Label:
+            text: 'Lorem Ipsum Dolor Sit'
+            font_size: '18sp'
+            color: 0.2, 0.2, 0.2, 1
+            size_hint_y: None
+            height: 40
+            halign: 'center'
+            size_hint_x: None
+            width: self.texture_size[0] + 20  # Center the label
+
+        # ScrollView untuk tabel
+        ScrollView:  # Add scroll view to handle content overflow
+            size_hint: (1, 0.7)  # Mengatur ketinggian konten (lebih kecil agar lebih ke atas)
+            pos_hint: {'top': 0.9}  # Posisi scrollview dinaikkan lebih ke atas
+            GridLayout:
+                cols: 4
+                row_default_height: 40
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: [1, 1]  # Spacing for table borders
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1  # Gray border color
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 1
+
+                # Table headers
+                Label:
+                    text: 'No'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: 'lorem'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: 'ipsum'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: 'dolor'
+                    bold: True
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: ''  # Empty for "Detail" column
+
+                # Row 1
+                Label:
+                    text: '1'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Button:
+                    text: 'Detail'
+                    on_press: root.detail(1)
+
+                # Row 2
+                Label:
+                    text: '2'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Button:
+                    text: 'Detail'
+                    on_press: root.detail(2)
+
+                # Row 3
+                Label:
+                    text: '-'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Button:
+                    text: 'Detail'
+                    on_press: root.detail(3)
+
+                # Row 4
+                Label:
+                    text: '-'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1  # Black text
+                    valign: 'top'  # Align text to the top
+                Button:
+                    text: 'Detail'
+                    on_press: root.detail(4)
+
+    # Navigation Bar sebagai footer di bawah   
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'bottom'
+            
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 60
+            padding: [10, 10]
+            spacing: 20
+            Button:
+                text: 'Beranda'
+                font_size: '14sp'
+                on_press: app.root.current = 'home'
+            Button:
+                text: 'Info Antrian'
+                font_size: '14sp'
+                on_press: app.root.current = 'information'
+            Button:
+                text: 'KelolaPasien'
+                font_size: '14sp'
+                on_press: app.root.current = 'kelola'
