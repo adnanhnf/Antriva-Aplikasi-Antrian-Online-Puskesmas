@@ -38,7 +38,7 @@
     ScrollView:
         size_hint_y: 0.8
         pos_hint: {'top': 0.9}
-        
+
         BoxLayout:
             orientation: 'vertical'
             padding: [20, 10]
@@ -46,33 +46,77 @@
             size_hint_y: None
             height: self.minimum_height
 
-            Button:
-                text: 'Notifikasi 1'
+            BoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
                 height: 60
-                background_color: 0.8, 0.8, 0.8, 1
-                color: 0, 0, 0, 1
+                padding: [10, 10]
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text: 'Notifikasi 1'
+                    color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
 
-            Button:
-                text: 'Notifikasi 2'
+            BoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
                 height: 60
-                background_color: 0.8, 0.8, 0.8, 1
-                color: 0, 0, 0, 1
+                padding: [10, 10]
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text: 'Notifikasi 2'
+                    color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
 
-            Button:
-                text: 'Notifikasi 3'
+            BoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
                 height: 60
-                background_color: 0.8, 0.8, 0.8, 1
-                color: 0, 0, 0, 1
+                padding: [10, 10]
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text: 'Notifikasi 3'
+                    color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
 
-            Button:
-                text: 'Notifikasi 4'
+            BoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
                 height: 60
-                background_color: 0.8, 0.8, 0.8, 1
-                color: 0, 0, 0, 1
+                padding: [10, 10]
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Label:
+                    text: 'Notifikasi 4'
+                    color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
 
     # Footer (menu bar)
     BoxLayout:

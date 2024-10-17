@@ -1,4 +1,4 @@
-<HistoryScreen>: # Tampilan Riwayat Pasien
+<HistoryScreen>:  # Tampilan Riwayat Pasien
     orientation: 'vertical'
 
     canvas.before:
@@ -36,8 +36,8 @@
 
     # Main Content Section (Table)
     ScrollView:  # Add scroll view to handle content overflow
-        size_hint: (1, None)
-        height: 400  # Adjusted height for content
+        size_hint: (1, 0.7)  # Mengatur ketinggian konten (lebih kecil agar lebih ke atas)
+        pos_hint: {'top': 0.9}  # Posisi scrollview dinaikkan lebih ke atas
         GridLayout:
             cols: 4
             row_default_height: 40

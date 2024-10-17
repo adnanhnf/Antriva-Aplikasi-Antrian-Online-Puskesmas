@@ -61,90 +61,110 @@
                         height: 130
                         canvas.before:
                             Color:
-                                rgba: 1, 1, 1, 1
+                                rgba: 0.15, 0.15, 0.15, 0.15
                             Ellipse:
                                 # source: 'profile_placeholder.png'
                                 pos: self.center_x - 65, self.center_y + 65
                                 size: 130, 130
-
+                               
                 # Information Section
                 GridLayout:
                     cols: 2
-                    row_default_height: 35
+                    row_default_height: 40  # Meningkatkan tinggi baris untuk menambah jarak vertikal antar teks
                     size_hint_y: None
                     height: self.minimum_height
-                    spacing: 8
-                    padding: [20, 0]
+                    spacing: 12  # Menambah spasi antar teks (horizontal)
+                    padding: [40, 0]  # Menambah padding untuk memberi jarak lebih dari sisi window
 
                     Label:
                         text: 'NIK'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
                         halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.35  # Mengurangi lebar kolom kiri
 
                     Label:
                         text: '331103xxxxxxxxxxxx'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
-                        halign: 'right'
+                        halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.65  # Memberi lebih banyak ruang di kolom kanan
 
                     Label:
                         text: 'Nama'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
                         halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.35
 
                     Label:
                         text: 'Lorem ipsum'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
-                        halign: 'right'
+                        halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.65
 
                     Label:
                         text: 'Email'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
                         halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.35
 
                     Label:
                         text: 'Lorem ipsum'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
-                        halign: 'right'
+                        halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.65
 
                     Label:
                         text: 'No. Telp'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
                         halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.35
 
                     Label:
                         text: '0895xxxxxxxx'
-                        color: 0.2, 0.2, 0.2, 1
-                        halign: 'right'
-                        text_size: self.size
-                        valign: 'middle'
-
-                    Label:
-                        text: 'Alamat'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
                         halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.65
+
+                    Label:
+                        text: 'Alamat'
+                        font_size: '16sp'  # Memperbesar ukuran teks
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
+                        size_hint_x: 0.35
 
                     Label:
                         text: 'Lorem ipsum dolor sit'
+                        font_size: '16sp'  # Memperbesar ukuran teks
                         color: 0.2, 0.2, 0.2, 1
-                        halign: 'right'
+                        halign: 'left'
                         text_size: self.size
                         valign: 'middle'
+                        size_hint_x: 0.65
 
         # Footer Section - Fixed at bottom
         BoxLayout:
