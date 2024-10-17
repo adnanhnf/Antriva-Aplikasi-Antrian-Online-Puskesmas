@@ -1,24 +1,27 @@
-<NotificationScreen>: # Tampilan Notifikasi Pasien !!
+<NotificationScreen>:
     orientation: 'vertical'
 
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header layout
+    # Header layout - tetap di atas
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
         height: 60
         padding: [10, 10]
+        pos_hint: {'top': 1}  # Memastikan header di atas
+        spacing: 5  # Mengurangi jarak antara logo dan teks
 
         Image:
             source: 'path_to_logo.png'
             size_hint: None, None
             size: 40, 40
+            color: 0.15, 0.15, 0.15, 0.15
 
         Label:
             text: 'Notifikasi'
@@ -27,45 +30,49 @@
             color: 0.2, 0.2, 0.2, 1
             halign: 'left'
             valign: 'middle'
+            size_hint_x: None  # Mengatur lebar label
+            width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+            text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
 
     # Main content (list of notifications)
-    BoxLayout:
-        orientation: 'vertical'
-        padding: [20, 10]
-        spacing: 10
-
-        Button:
-            text: 'Notifikasi 1'
+    ScrollView:
+        size_hint_y: 0.8
+        pos_hint: {'top': 0.9}
+        
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 10]
+            spacing: 10
             size_hint_y: None
-            height: 60
-            background_color: 0.8, 0.8, 0.8, 1
-            color: 0, 0, 0, 1
+            height: self.minimum_height
 
-        Button:
-            text: 'Notifikasi 2'
-            size_hint_y: None
-            height: 60
-            background_color: 0.8, 0.8, 0.8, 1
-            color: 0, 0, 0, 1
+            Button:
+                text: 'Notifikasi 1'
+                size_hint_y: None
+                height: 60
+                background_color: 0.8, 0.8, 0.8, 1
+                color: 0, 0, 0, 1
 
-        Button:
-            text: 'Notifikasi 3'
-            size_hint_y: None
-            height: 60
-            background_color: 0.8, 0.8, 0.8, 1
-            color: 0, 0, 0, 1
+            Button:
+                text: 'Notifikasi 2'
+                size_hint_y: None
+                height: 60
+                background_color: 0.8, 0.8, 0.8, 1
+                color: 0, 0, 0, 1
 
-        Button:
-            text: 'Notifikasi 4'
-            size_hint_y: None
-            height: 60
-            background_color: 0.8, 0.8, 0.8, 1
-            color: 0, 0, 0, 1
-    
-    # Spacer to push the footer down
-    Widget:
-        size_hint_y: None
-        height: 450
+            Button:
+                text: 'Notifikasi 3'
+                size_hint_y: None
+                height: 60
+                background_color: 0.8, 0.8, 0.8, 1
+                color: 0, 0, 0, 1
+
+            Button:
+                text: 'Notifikasi 4'
+                size_hint_y: None
+                height: 60
+                background_color: 0.8, 0.8, 0.8, 1
+                color: 0, 0, 0, 1
 
     # Footer (menu bar)
     BoxLayout:

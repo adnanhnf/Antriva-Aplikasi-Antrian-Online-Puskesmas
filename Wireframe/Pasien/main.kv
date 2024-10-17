@@ -226,37 +226,42 @@
 <HomeScreen>: # Tampilan Beranda Pasien !!
     AnchorLayout:
         anchor_x: 'center'
-        anchor_y: 'center'
+        anchor_y: 'top'
 
         BoxLayout:
             orientation: 'vertical'
             size_hint: None, None
             width: 500  # Lebar diperkecil
             height: 600  # Tinggi diperkecil
-            padding: 20
-            spacing: 15  # Menambah jarak antar elemen
+            padding: 10
+            spacing: 5  # Menambah jarak antar elemen
 
             # Header dengan logo dan tulisan Beranda
             BoxLayout:
                 size_hint_y: None
-                height: 80  # Menambah tinggi untuk header
+                height: 60  # Menambah tinggi untuk header
                 orientation: 'horizontal'
-                padding: [20, 10]  # Jarak antar logo dan teks
-                spacing: 10
+                padding: [10, 10]  # Jarak antar logo dan teks lebih kecil
+                pos_hint: {'top': 1}  # Header lebih ke kiri
+                spacing: 5
 
                 Image:
                     source: 'path_to_your_logo.png'  # Ganti dengan path gambar logo Anda
                     size_hint: None, None
-                    size: 50, 50  # Ukuran logo
+                    size: 40, 40  # Ukuran logo
                     pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+                    color: 0.15, 0.15, 0.15, 0.15
 
                 Label:
                     text: 'Beranda'
-                    font_size: '24sp'  # Ukuran font lebih besar
+                    font_size: '20sp'
                     bold: True
-                    color: 0, 0, 0, 1
+                    color: 0.2, 0.2, 0.2, 1
+                    halign: 'left'
                     valign: 'middle'
-                    text_size: self.size
+                    size_hint_x: None  # Mengatur lebar label
+                    width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+                    text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
 
                 Widget:  # Spacer
                     size_hint_x: 1
@@ -349,12 +354,13 @@
                 size_hint_y: None
                 height: 20
 
-            # Navigation Bar sebagai footer
+        # Navigation Bar sebagai footer di bawah       
             BoxLayout:
+                orientation: 'horizontal'
                 size_hint_y: None
-                height: 60  # Ketinggian navigation bar yang sesuai
-                spacing: 10
-
+                height: 60
+                padding: [10, 10]
+                spacing: 20
                 Button:
                     text: 'Beranda'
                     font_size: '14sp'
