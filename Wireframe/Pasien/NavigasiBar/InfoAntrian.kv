@@ -1,35 +1,46 @@
-<InfoQueueScreen>: # Tampilan Informasi Antrian !!
+<InfoQueueScreen>:
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Warna latar belakang
+            rgba: 0.95, 0.95, 0.95, 1
         Rectangle:
             pos: self.pos
             size: self.size
 
-    AnchorLayout:
-        anchor_x: 'center'
-        anchor_y: 'top'  # Menempatkan konten lebih ke atas layar
-
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 0
+        
+        # Main Content
         BoxLayout:
             orientation: 'vertical'
             padding: [20, 20, 20, 20]
             spacing: 20
-            size_hint_y: None
-            height: 600  # Mengatur tinggi keseluruhan layout agar tidak memenuhi layar
-
+            
             # Header Info Antrian
             BoxLayout:
                 orientation: 'horizontal'
                 size_hint_y: None
-                height: 70
+                height: 60
                 padding: [10, 10]
+                pos_hint: {'top': 1}  # Memastikan header di atas
+                spacing: 5  # Mengurangi jarak antara logo dan teks
 
-            Label:
-                text: 'Info Antrian'
-                font_size: '20sp'
-                bold: True
-                color: 0.2, 0.2, 0.2, 1
-                valign: 'middle'
+                Image:
+                    # source: 'path_to_logo.png'
+                    size_hint: None, None
+                    size: 40, 40
+                    color: 0.15, 0.15, 0.15, 0.15
+
+                Label:
+                    text: 'Info Antrian'
+                    font_size: '20sp'
+                    bold: True
+                    color: 0.2, 0.2, 0.2, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    size_hint_x: None  # Mengatur lebar label
+                    width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+                    text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
 
             # Nomor Antrian Poli
             Label:
@@ -41,7 +52,7 @@
                 height: 40
 
             Label:
-                text: '03'  # Ganti dengan nomor antrian aktual
+                text: '03'
                 font_size: '40sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
@@ -59,7 +70,7 @@
                 height: 40
 
             Label:
-                text: '25'  # Ganti dengan nomor antrian aktual
+                text: '25'
                 font_size: '40sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
@@ -69,39 +80,42 @@
 
             # Estimasi Waktu
             Button:
-                text: 'ESTIMASI WAKTU 02:30'  # Ganti dengan estimasi waktu aktual
+                text: 'ESTIMASI WAKTU 02:30'
                 font_size: '16sp'
-                background_color: 0.2, 0.2, 0.2, 1  # Warna tombol lebih gelap
-                color: 0.9, 0.9, 0.9, 1  # Warna teks lebih terang
+                background_color: 0.2, 0.2, 0.2, 1
+                color: 0.9, 0.9, 0.9, 1
                 size_hint_y: None
                 height: 60
-
-            # Spacer to push the navigation buttons down
+            
+            # Spacer untuk mendorong konten ke atas
             Widget:
-                size_hint_y: None
-                height: 100
-
-            BoxLayout:
-                size_hint_y: None
-                height: 60  # Ketinggian navigation bar yang sesuai
-                spacing: 10
-                Button:
-                    text: 'Beranda'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'home'
-                Button:
-                    text: 'Antrian'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'information'
-                Button:
-                    text: 'Notifikasi'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'notification'
-                Button:
-                    text: 'Riwayat'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'history'
-                Button:
-                    text: 'Profil'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'profil'
+                size_hint_y: 1
+        
+        # Footer Navigation
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 60
+            padding: [10, 10]
+            spacing: 20
+                    
+            Button:
+                text: 'Beranda'
+                font_size: '14sp'
+                on_press: app.root.current = 'home'
+            Button:
+                text: 'Antrian'
+                font_size: '14sp'
+                on_press: app.root.current = 'information'
+            Button:
+                text: 'Notifikasi'
+                font_size: '14sp'
+                on_press: app.root.current = 'notification'
+            Button:
+                text: 'Riwayat'
+                font_size: '14sp'
+                on_press: app.root.current = 'history'
+            Button:
+                text: 'Profil'
+                font_size: '14sp'
+                on_press: app.root.current = 'profil'

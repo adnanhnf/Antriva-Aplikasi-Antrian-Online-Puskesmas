@@ -25,7 +25,7 @@ class LoginScreen(Screen): # Logika Tampilan Login Pasien !!
         password = self.ids.password.text 
         
         # Validasi username dan password
-        if username == 'admin' and password == 'admin': 
+        if username == 'a' and password == 'a': 
             self.manager.current = 'home' 
         else: 
             self.ids.error_label.text = 'Username atau password salah.' 
@@ -49,7 +49,7 @@ class PoliBox(BoxLayout): # Logika Tampilan Beranda Pasien !!
     def update_status(self, status):
         self.is_available = status
         # Mengupdate status menjadi teks
-        self.status_text = 'Tersedia' if status else 'Tidak Tersedia'
+        self.status_text = 'Tersedia' if status else 'Tidak\nTersedia'
 
 class HomeScreen(Screen):
     poli_status = DictProperty({

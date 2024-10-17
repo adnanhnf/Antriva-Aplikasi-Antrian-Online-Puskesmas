@@ -1,140 +1,177 @@
-<ProfilScreen>: # Tampilan Profil Pasien !!
-    orientation: 'vertical'
+<ProfilScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.95, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
 
-    canvas.before:
-        Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
-        Rectangle:
-            pos: self.pos
-            size: self.size
-
-    # Header Section
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 70
-        padding: [10, 10]
-
-        Button:
-            text: ''
-            size_hint_x: None
-            width: 50
-            background_normal: 'logo_icon.png'  # Add your logo icon here
-
-        Label:
-            text: 'Profil'
-            font_size: '20sp'
-            bold: True
-            color: 0.2, 0.2, 0.2, 1
-            valign: 'middle'
-
-    # Main Content Section
-    BoxLayout:
-        orientation: 'vertical'
-        padding: [20, 10]
-        spacing: 20
-
+        # Header Section - Fixed at top
         BoxLayout:
-            orientation: 'vertical'
-            size_hint_y: None
-            height: 200
-            padding: [0, 10]
-            spacing: 10
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 60
+            pos_hint: {'top': 1}
+            padding: [10, 10]
+            spacing: 5
 
-            # Profile Picture Placeholder
-            Widget:
+            Image:
+                # source:'path_to_logo.png'
+                size_hint: None, None
+                size: 40, 40
+                color: 0.15, 0.15, 0.15, 0.15
+
+            Label:
+                text: 'Profil'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+                valign: 'middle'
+                size_hint_x: None  # Mengatur lebar label
+                width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+                text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
+
+        # Content wrapper with automatic centering
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'center'
+            size_hint: 1, None
+            height: 450  # You can adjust this height based on the content
+            pos_hint: {'center_y': 0.55}
+            
+            # Main Content Container
+            BoxLayout:
+                orientation: 'vertical'
                 size_hint_y: None
-                height: 130
-                canvas.before:
-                    Color:
-                        rgba: 1, 1, 1, 1
-                    Ellipse:
-                        source: 'profile_placeholder.png'  # Replace with your image path
-                        pos: self.center_x - 50, self.center_y - 50
-                        size: 130, 130
+                height: self.minimum_height
+                padding: [10, 10]
+                spacing: 5
 
-        # Information Section
-        GridLayout:
-            cols: 2
-            row_default_height: 40
-            size_hint_y: None
-            height: self.minimum_height
-            spacing: 10
+                # Profile Picture Section
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 160
+                    padding: [0, 0]
 
-            Label:
-                text: 'NIK'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'left'
+                    Widget:
+                        size_hint_y: None
+                        height: 130
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            Ellipse:
+                                # source: 'profile_placeholder.png'
+                                pos: self.center_x - 65, self.center_y + 65
+                                size: 130, 130
 
-            Label:
-                text: '331103xxxxxxxxxxxx'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                # Information Section
+                GridLayout:
+                    cols: 2
+                    row_default_height: 35
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 8
+                    padding: [20, 0]
 
-            Label:
-                text: 'Nama'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'left'
+                    Label:
+                        text: 'NIK'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'Lorem ipsum'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                    Label:
+                        text: '331103xxxxxxxxxxxx'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'right'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'Email'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'left'
+                    Label:
+                        text: 'Nama'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'Lorem ipsum'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                    Label:
+                        text: 'Lorem ipsum'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'right'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'No. Telp'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'left'
+                    Label:
+                        text: 'Email'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: '0895xxxxxxxx'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                    Label:
+                        text: 'Lorem ipsum'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'right'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'Alamat'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'left'
+                    Label:
+                        text: 'No. Telp'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
 
-            Label:
-                text: 'Lorem ipsum dolor sit'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                    Label:
+                        text: '0895xxxxxxxx'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'right'
+                        text_size: self.size
+                        valign: 'middle'
 
-    # Footer Section
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 60
-        padding: [10, 10]
-        spacing: 20
-        Button:
-            text: 'Beranda'
-            font_size: '14sp'
-            on_press: app.root.current = 'home'
-        Button:
-            text: 'Antrian'
-            font_size: '14sp'
-            on_press: app.root.current = 'information'
-        Button:
-            text: 'Notifikasi'
-            font_size: '14sp'
-            on_press: app.root.current = 'notification'
-        Button:
-            text: 'Riwayat'
-            font_size: '14sp'
-            on_press: app.root.current = 'history'
-        Button:
-            text: 'Profil'
-            font_size: '14sp'
-            on_press: app.root.current = 'profil'
+                    Label:
+                        text: 'Alamat'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'left'
+                        text_size: self.size
+                        valign: 'middle'
+
+                    Label:
+                        text: 'Lorem ipsum dolor sit'
+                        color: 0.2, 0.2, 0.2, 1
+                        halign: 'right'
+                        text_size: self.size
+                        valign: 'middle'
+
+        # Footer Section - Fixed at bottom
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 60
+            pos_hint: {'y': 0}
+            padding: [10, 10]
+            spacing: 20
+
+            Button:
+                text: 'Beranda'
+                font_size: '14sp'
+                on_press: app.root.current = 'home'
+            Button:
+                text: 'Antrian'
+                font_size: '14sp'
+                on_press: app.root.current = 'information'
+            Button:
+                text: 'Notifikasi'
+                font_size: '14sp'
+                on_press: app.root.current = 'notification'
+            Button:
+                text: 'Riwayat'
+                font_size: '14sp'
+                on_press: app.root.current = 'history'
+            Button:
+                text: 'Profil'
+                font_size: '14sp'
+                on_press: app.root.current = 'profil'

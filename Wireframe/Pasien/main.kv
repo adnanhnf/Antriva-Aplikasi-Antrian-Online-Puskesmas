@@ -14,7 +14,7 @@
             spacing: 10  
 
             Image:
-                source: 'path_to_your_logo.png'  # Ganti dengan path gambar Anda
+                # source: 'path_to_your_logo.png'  # Ganti dengan path gambar Anda
                 size_hint: None, None
                 size: 450, 300
                 pos_hint: {'center_x': 0.5}
@@ -126,7 +126,7 @@
                 height: 500
 
                 Image:
-                    source: 'gambar.png'  # Ganti dengan path gambar Anda
+                    # source: 'gambar.png'  # Ganti dengan path gambar Anda
                     size_hint: None, None
                     size: 250, 250
                     color: 0.15, 0.15, 0.15, 0.15
@@ -220,6 +220,8 @@
     
     Label:
         text: root.status_text  # Menampilkan status dalam bentuk teks
+        halign: 'center'
+        font_size: '12sp'
         size_hint_x: 0.2
         color: (0, 0.7, 0, 1) if root.is_available else (0.7, 0, 0, 1)  # warna tulisan "Tersedia" dan "Tidak Tersedia"
 
@@ -238,15 +240,15 @@
 
             # Header dengan logo dan tulisan Beranda
             BoxLayout:
-                size_hint_y: None
-                height: 60  # Menambah tinggi untuk header
                 orientation: 'horizontal'
-                padding: [10, 10]  # Jarak antar logo dan teks lebih kecil
-                pos_hint: {'top': 1}  # Header lebih ke kiri
-                spacing: 5
+                size_hint_y: None
+                height: 60
+                padding: [10, 10]
+                pos_hint: {'top': 1}  # Memastikan header di atas
+                spacing: 5  # Mengurangi jarak antara logo dan teks
 
                 Image:
-                    source: 'path_to_your_logo.png'  # Ganti dengan path gambar logo Anda
+                    # source: 'path_to_your_logo.png'  # Ganti dengan path gambar logo Anda
                     size_hint: None, None
                     size: 40, 40  # Ukuran logo
                     pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
