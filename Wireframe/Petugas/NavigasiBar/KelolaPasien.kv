@@ -12,166 +12,184 @@
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
-        height: 70
+        height: 60
         padding: [10, 10]
+        pos_hint: {'top': 1}  # Memastikan header di atas
+        spacing: 5  # Mengurangi jarak antara logo dan teks
 
-        Button:
-            text: ''
-            size_hint_x: None
-            width: 50
-            background_normal: 'logo_icon.png'  # Add your logo icon here
+        Image:
+            # source: 'path_to_your_logo.png'  # Ganti dengan path logo
+            size_hint: None, None
+            size: 40, 40  # Ukuran logo
+            pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+            color: 0.15, 0.15, 0.15, 0.15
 
         Label:
             text: 'Kelola Pasien'
             font_size: '20sp'
             bold: True
-            color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+            color: 0.2, 0.2, 0.2, 1
+            halign: 'left'
             valign: 'middle'
+            size_hint_x: None  # Mengatur lebar label
+            width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
+            text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
 
-    # Main Content Section (Table)
-    BoxLayout:
-        orientation: 'vertical'
-        padding: [10, 10]
-        size_hint_y: 0.8  # Membuat ukuran kontainer menjadi 80% dari tinggi layar
+    # Padding antara Header dan ScrollView
+    Widget:
+        size_hint_y: None
+        height: 20  # Tambahkan jarak antara header dan konten
 
-        Label:
-            text: 'Lorem Ipsum Dolor Sit'
-            font_size: '18sp'
-            color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            size_hint_y: None
-            height: 40
+    # Main Content Section (Table) dalam ScrollView
+    ScrollView:
+        do_scroll_x: False  # Disable horizontal scroll
+        do_scroll_y: True  # Enable vertical scroll
+        size_hint_y: 0.8  # Mengatur ukuran agar tabel tidak terlalu panjang
 
-        GridLayout:
-            cols: 5
-            row_default_height: 40
-            size_hint_y: None
-            height: self.minimum_height
-            spacing: [1, 1]  # Spasi untuk garis pembatas
-            canvas.before:
-                Color:
-                    rgba: 0.8, 0.8, 0.8, 1  # Warna garis pembatas abu-abu
-                Line:
-                    rectangle: self.x, self.y, self.width, self.height
-                    width: 1
-
-            # Table headers
-            Label:
-                text: 'No'
-                bold: True
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: 'lorem'
-                bold: True
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: 'ipsum'
-                bold: True
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: 'dolor'
-                bold: True
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: ''  # Empty for "Kelola" column
-
-            # Row 1
-            Label:
-                text: '1'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Button:
-                text: 'Kelola'
-                on_press: root.kelola(1)
-
-            # Row 2
-            Label:
-                text: '2'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Button:
-                text: 'Kelola'
-                on_press: root.kelola(2)
-
-            # Row 3
-            Label:
-                text: '-'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Button:
-                text: 'Kelola'
-                on_press: root.kelola(3)
-
-            # Row 4
-            Label:
-                text: '-'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Label:
-                text: '--'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-            Button:
-                text: 'Kelola'
-                on_press: root.kelola(4)
-
-        # Add "Tambah Pasien" Button
         BoxLayout:
+            orientation: 'vertical'
+            padding: [10, 10]
             size_hint_y: None
-            height: 50
-            Button:
-                text: '+ Tambah Pasien'
-                size_hint_x: None
-                width: 150
-                on_press: root.tambah_pasien()
+            height: self.minimum_height  # Agar konten sesuai tinggi konten
+
+            Label:
+                text: 'Lorem Ipsum Dolor Sit'
+                font_size: '18sp'
+                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                size_hint_y: None
+                height: 40
+
+            GridLayout:
+                cols: 5
+                row_default_height: 40
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: [1, 1]  # Spasi untuk garis pembatas
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1  # Warna garis pembatas abu-abu
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 1
+
+                # Table headers
+                Label:
+                    text: 'No'
+                    bold: True
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: 'lorem'
+                    bold: True
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: 'ipsum'
+                    bold: True
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: 'dolor'
+                    bold: True
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: ''  # Empty for "Kelola" column
+
+                # Row 1
+                Label:
+                    text: '1'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Button:
+                    text: 'Kelola'
+                    on_press: root.kelola(1)
+
+                # Row 2
+                Label:
+                    text: '2'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Button:
+                    text: 'Kelola'
+                    on_press: root.kelola(2)
+
+                # Row 3
+                Label:
+                    text: '-'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Button:
+                    text: 'Kelola'
+                    on_press: root.kelola(3)
+
+                # Row 4
+                Label:
+                    text: '-'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Label:
+                    text: '--'
+                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                Button:
+                    text: 'Kelola'
+                    on_press: root.kelola(4)
+
+            # Add "Tambah Pasien" Button
+            BoxLayout:
+                size_hint_y: None
+                height: 50
+                Button:
+                    text: '+ Tambah Pasien'
+                    size_hint_x: None
+                    width: 150
+                    on_press: root.tambah_pasien()
 
     # Navigation Bar sebagai footer di bawah   
-        AnchorLayout:
-            anchor_x: 'center'
-            anchor_y: 'bottom'
-                
-            BoxLayout:
-                orientation: 'horizontal'
-                size_hint_y: None
-                height: 60
-                padding: [10, 10]
-                spacing: 20
-                Button:
-                    text: 'Beranda'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'home'
-                Button:
-                    text: 'Info Antrian'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'information'
-                Button:
-                    text: 'KelolaPasien'
-                    font_size: '14sp'
-                    on_press: app.root.current = 'kelola'
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'bottom'
+            
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 60
+            padding: [10, 10]
+            spacing: 20
+            Button:
+                text: 'Beranda'
+                font_size: '14sp'
+                on_press: app.root.current = 'home'
+            Button:
+                text: 'Info Antrian'
+                font_size: '14sp'
+                on_press: app.root.current = 'information'
+            Button:
+                text: 'KelolaPasien'
+                font_size: '14sp'
+                on_press: app.root.current = 'kelola'

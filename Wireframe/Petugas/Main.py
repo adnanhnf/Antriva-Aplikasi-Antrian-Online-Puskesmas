@@ -7,7 +7,7 @@ import os
 from NavigasiBar.InfoAntrianPetugas import InfoAntrianScreen
 from NavigasiBar.KelolaPasien import KelolaPasienScreen
 
-# Set window size
+# Set window size   
 Window.size = (400, 700)
 Window.clearcolor = (0.95, 0.95, 0.95, 1)
 
