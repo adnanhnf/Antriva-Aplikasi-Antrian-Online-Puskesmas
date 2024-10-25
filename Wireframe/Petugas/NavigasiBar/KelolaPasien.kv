@@ -59,15 +59,15 @@
                 size_hint_y: None
                 height: 40
 
+            # Main Content Section (Table)
             GridLayout:
-                cols: 5
-                row_default_height: 40
+                cols: 4
                 size_hint_y: None
-                height: self.minimum_height
-                spacing: [1, 1]  # Spasi untuk garis pembatas
+                height: 40
+                pos_hint: {'top': 0.9}
                 canvas.before:
                     Color:
-                        rgba: 0.8, 0.8, 0.8, 1  # Warna garis pembatas abu-abu
+                        rgba: 0.8, 0.8, 0.8, 1
                     Line:
                         rectangle: self.x, self.y, self.width, self.height
                         width: 1
@@ -76,99 +76,113 @@
                 Label:
                     text: 'No'
                     bold: True
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: 'lorem'
                     bold: True
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: 'ipsum'
                     bold: True
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: 'dolor'
                     bold: True
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: ''  # Empty for "Kelola" column
+                
+        # Scrollable Content
+        ScrollView:
+            size_hint: (1, 0.7)
+            pos_hint: {'top': 0.85}
+            GridLayout:
+                cols: 4
+                row_default_height: 40
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: [1, 1]
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 1
+                    Line:
+                        rectangle: self.x, self.y, self.width, self.height
+                        width: 1
 
-                # Row 1
+                # Table Content Rows
                 Label:
                     text: '1'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Button:
                     text: 'Kelola'
                     on_press: root.kelola(1)
 
-                # Row 2
                 Label:
                     text: '2'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Button:
                     text: 'Kelola'
                     on_press: root.kelola(2)
 
-                # Row 3
                 Label:
-                    text: '-'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-                Label:
-                    text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    text: '3'
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1
                 Button:
                     text: 'Kelola'
                     on_press: root.kelola(3)
 
-                # Row 4
                 Label:
-                    text: '-'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-                Label:
-                    text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    text: '4'
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
                 Label:
                     text: '--'
-                    color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
+                    color: 0, 0, 0, 1
+                Label:
+                    text: '--'
+                    color: 0, 0, 0, 1
                 Button:
                     text: 'Kelola'
                     on_press: root.kelola(4)
 
-            # Add "Tambah Pasien" Button
-            BoxLayout:
-                size_hint_y: None
-                height: 50
-                Button:
-                    text: '+ Tambah Pasien'
-                    size_hint_x: None
-                    width: 150
-                    on_press: root.tambah_pasien()
+        # Add "Tambah Pasien" Button
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            Button:
+                text: '+ Tambah Pasien'
+                size_hint_x: None
+                width: 150
+                on_press: root.tambah_pasien()
 
     # Navigation Bar sebagai footer di bawah   
     AnchorLayout:

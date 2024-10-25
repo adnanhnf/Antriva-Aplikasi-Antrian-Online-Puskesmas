@@ -18,14 +18,14 @@ class WelcomeScreen(Screen): # Logika Tampilan Welcome Pasien
 class LoginScreen(Screen): # Logika Tampilan Login Pasien
     def validate_credentials(self): 
         # Mendapatkan input dari user
-        username = self.ids.username.text 
+        email = self.ids.email.text 
         password = self.ids.password.text 
         
-        # Validasi username dan password
-        if username == 'a' and password == 'a': 
+        # Validasi email dan password
+        if email == 'a' and password == 'a': 
             self.manager.current = 'home' 
         else: 
-            self.ids.error_label.text = 'Username atau password salah.' 
+            self.ids.error_label.text = 'Emails atau password salah.' 
     
     def go_back(self):
         self.manager.current = 'welcome'

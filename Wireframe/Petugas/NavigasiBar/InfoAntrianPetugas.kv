@@ -36,9 +36,40 @@
             text_size: None, self.height
 
     # Main Content Section (Table)
-    ScrollView:  # Memastikan tabel ditampilkan secara konsisten seperti di HistoryScreen
-        size_hint: (1, 0.7)  # Mengatur ketinggian konten agar lebih ke atas
+    GridLayout:
+        cols: 4
+        size_hint_y: None
+        height: 40
         pos_hint: {'top': 0.9}
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.8, 0.8, 1
+            Line:
+                rectangle: self.x, self.y, self.width, self.height
+                width: 1
+
+        # Table headers
+        Label:
+            text: 'No'
+            bold: True
+            color: 0, 0, 0, 1
+        Label:
+            text: 'lorem'
+            bold: True
+            color: 0, 0, 0, 1
+        Label:
+            text: 'ipsum'
+            bold: True
+            color: 0, 0, 0, 1
+        Label:
+            text: 'dolor'
+            bold: True
+            color: 0, 0, 0, 1
+        
+    # Scrollable Content
+    ScrollView:
+        size_hint: (1, 0.7)
+        pos_hint: {'top': 0.85}
         GridLayout:
             cols: 4
             row_default_height: 40
@@ -51,24 +82,6 @@
                 Line:
                     rectangle: self.x, self.y, self.width, self.height
                     width: 1
-
-            # Table headers
-            Label:
-                text: 'No'
-                bold: True
-                color: 0, 0, 0, 1
-            Label:
-                text: 'lorem'
-                bold: True
-                color: 0, 0, 0, 1
-            Label:
-                text: 'ipsum'
-                bold: True
-                color: 0, 0, 0, 1
-            Label:
-                text: 'dolor'
-                bold: True
-                color: 0, 0, 0, 1
 
             # Table Content Rows
             Label:
