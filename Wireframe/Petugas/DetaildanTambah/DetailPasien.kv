@@ -1,34 +1,34 @@
 <DetailPasienScreen>:
     BoxLayout:
         orientation: 'vertical'
-
         canvas.before:
             Color:
-                rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+                rgba: 0.95, 0.95, 0.95, 1  
             Rectangle:
                 pos: self.pos
                 size: self.size
 
-        # Header Section
+        # Header 
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: None
             height: 70
             padding: [10, 10]
 
+            # Tombol Kembali
             Button:
                 size_hint_x: None
                 width: 50
                 background_normal: ''
-                background_color: 1, 1, 1, 0  # Transparent
-                on_press: root.go_back()
+                background_color: 1, 1, 1, 0  
+                on_press: root.kembali()
 
                 canvas.before:
                     Color:
-                        rgba: 1, 1, 1, 1  # White color
+                        rgba: 1, 1, 1, 1  
                     Ellipse:
                         pos: self.x - 2, self.center_y - self.width / 2 - 2
-                        size: self.width + 4, self.width + 4  # Circle shape
+                        size: self.width + 4, self.width + 4  
 
                 Image:
                     source: 'Image/ButtonBack.png'
@@ -36,35 +36,33 @@
                     center_y: self.parent.center_y
                     size: 28, 28
 
-            # Spacer between button and title
             Widget:
                 size_hint_x: 0.05
 
+            # Teks Judul Detail Pasien
             Label:
                 text: 'Detail Pasien'
                 font_size: '24sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
                 valign: 'middle'
-                size_hint_x: 1  # Full width to center the title
+                size_hint_x: 1  
 
-            # Spacer to balance the layout on the right
             Widget:
                 size_hint_x: 0.1
 
-        # Spacer to move content below the header
         Widget:
             size_hint_y: None
             height: 20
 
-        # Patient Detail Content (Centered in Grid)
+        # Isi Konten Detail Pasien
         GridLayout:
             cols: 2
             padding: [20, 20]
             spacing: [10, 10]
             size_hint_y: None
             row_default_height: 30
-            pos_hint: {"center_y": 0.5}  # Center content vertically in the screen
+            pos_hint: {"center_y": 0.5}  
 
             Label:
                 text: 'Email'
@@ -178,6 +176,5 @@
                 valign: 'middle'
                 text_size: self.size
 
-        # Spacer at the bottom
         Widget:
             size_hint_y: 0.3

@@ -1,27 +1,26 @@
-<InfoAntrianScreen>:
+<InformasiAntrianScreen>: # Tampilan Informasi Antrian Pasien (Petugas) !!
     orientation: 'vertical'
-    
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1  
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header Section
+    # Header 
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
         height: 60
         padding: [10, 10]
-        pos_hint: {'top': 1}  # Pastikan header di atas
-        spacing: 5  # Mengurangi jarak antara logo dan teks
+        pos_hint: {'top': 1}  
+        spacing: 5  
 
         Image:
-            # source: 'path_to_your_logo.png'  # Ganti dengan path logo
+            # source: 'path_to_your_logo.png'  
             size_hint: None, None
-            size: 40, 40  # Ukuran logo
-            pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
+            size: 40, 40  
+            pos_hint: {'center_y': 0.5}  
             color: 0.15, 0.15, 0.15, 0.15
 
         Label:
@@ -35,11 +34,11 @@
             width: self.texture_size[0] + dp(10)
             text_size: None, self.height
 
-    # Main Content Section (Table)
+    # Konten Tabel
     GridLayout:
-        cols: 4
+        cols: 5
         size_hint_y: None
-        height: 40
+        height: 50
         pos_hint: {'top': 0.9}
         canvas.before:
             Color:
@@ -48,30 +47,39 @@
                 rectangle: self.x, self.y, self.width, self.height
                 width: 1
 
-        # Table headers
+        # Header Tabel
         Label:
             text: 'No'
             bold: True
             color: 0, 0, 0, 1
+            size_hint_x: 0.1
         Label:
-            text: 'lorem'
+            text: 'Nama'
             bold: True
             color: 0, 0, 0, 1
+            size_hint_x: 0.3
         Label:
-            text: 'ipsum'
+            text: 'Tanggal\nPeriksa'
             bold: True
             color: 0, 0, 0, 1
+            size_hint_x: 0.2
         Label:
-            text: 'dolor'
+            text: 'Aksi'
             bold: True
             color: 0, 0, 0, 1
-        
-    # Scrollable Content
+            size_hint_x: 0.2
+        Label:
+            text: 'Detail\nAntrian'
+            bold: True
+            color: 0, 0, 0, 1
+            size_hint_x: 0.2
+
+    # Scroll Isi Tabel
     ScrollView:
         size_hint: (1, 0.7)
         pos_hint: {'top': 0.85}
         GridLayout:
-            cols: 4
+            cols: 5
             row_default_height: 40
             size_hint_y: None
             height: self.minimum_height
@@ -83,60 +91,96 @@
                     rectangle: self.x, self.y, self.width, self.height
                     width: 1
 
-            # Table Content Rows
+            # Baris Konten Tabel
             Label:
                 text: '1'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.1
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.3
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
+            Button:
+                text: 'Detail'
+                font_size: '12sp'
+                size_hint_x: 0.2
+                on_press: app.root.current = 'detail_antrian'
 
             Label:
                 text: '2'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.1
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.3
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
+            Button:
+                text: 'Detail'
+                font_size: '12sp'
+                size_hint_x: 0.2
+                on_press: app.root.current = 'detail_antrian'
 
             Label:
-                text: '-'
+                text: '3'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.1
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.3
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
+            Button:
+                text: 'Detail'
+                font_size: '12sp'
+                size_hint_x: 0.2
+                on_press: app.root.current = 'detail_antrian'
 
             Label:
-                text: '-'
+                text: '4'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.1
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.3
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
             Label:
                 text: '--'
                 color: 0, 0, 0, 1
+                size_hint_x: 0.2
+            Button:
+                text: 'Detail'
+                font_size: '12sp'
+                size_hint_x: 0.2
+                on_press: app.root.current = 'detail_antrian'
 
-    # Footer Navigation Bar
+    # Footer Navigasi Bar
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
@@ -146,12 +190,12 @@
         Button:
             text: 'Beranda'
             font_size: '14sp'
-            on_press: app.root.current = 'home'
+            on_press: app.root.current = 'beranda_petugas'
         Button:
             text: 'Info Antrian'
             font_size: '14sp'
-            on_press: app.root.current = 'information'
+            on_press: app.root.current = 'informasi_antrian'
         Button:
             text: 'Kelola Pasien'
             font_size: '14sp'
-            on_press: app.root.current = 'kelola'
+            on_press: app.root.current = 'kelola_pasien'

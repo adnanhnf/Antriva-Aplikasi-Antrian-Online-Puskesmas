@@ -1,9 +1,9 @@
-<WelcomeScreen>: # Tampilan Selamat Datang Petugas !!
+<HalamanAwalScreen>: # Tampilan Selamat Datang Petugas !!
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
             Color:
-                rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+                rgba: 0.95, 0.95, 0.95, 1  
             Rectangle:
                 pos: self.pos
                 size: self.size
@@ -12,9 +12,8 @@
             orientation: 'vertical'
             padding: 40
             spacing: 10  
-
             Image:
-                # source: 'path_to_your_logo.png'  # Ganti dengan path gambar Anda
+                # source: 'path_to_your_logo.png'  
                 size_hint: None, None
                 size: 450, 300
                 pos_hint: {'center_x': 0.5}
@@ -24,6 +23,7 @@
                 size_hint_y: None
                 height: 20
 
+            # Teks Judul
             Label:
                 text: 'APLIKASI ANTRIAN\nONLINE PUSKESMAS'
                 font_size: '24sp'
@@ -63,7 +63,6 @@
                 size_hint_y: None
                 height: 100
                 padding: [40, 0]
-
                 Button:
                     text: 'LOGIN'
                     size_hint: (0.7, None)
@@ -89,31 +88,47 @@
 
     AnchorLayout:
         anchor_x: 'center'
-        anchor_y: 'center'  # Menempatkan konten ke  bagian atas layar
+        anchor_y: 'center'  
 
         BoxLayout:
             orientation: 'vertical'
-            padding: [20, 50, 20, 20]  # Tambahkan padding ke bawah jika diperlukan
-            spacing: 20
+            padding: [20, 20, 20, 20]  # Reduced top padding
+            spacing: 30  # Increased spacing between elements
             size_hint_y: None
-            height: 500  # Atur tinggi layout utama
+            height: 600  # Increased height
 
-            # Back button at top-left
-            BoxLayout:
+            # Added spacing at top
+            Widget:
                 size_hint_y: None
-                height: 40
+                height: 50
+
+            # Tombol Kembali
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 50  # Reduced height
+                padding: [10, 10]
+                
                 Button:
-                    size_hint: None, None
-                    size: 40, 40
-                    pos_hint: {'left': 1}
-                    background_color: 0, 0, 0, 0
+                    size_hint_x: None
+                    width: 50
+                    background_normal: ''
+                    background_color: 1, 1, 1, 0  
+                    on_press: root.kembali()
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1  
+                        Ellipse:
+                            pos: self.x - 2, self.center_y - self.width / 2 - 2
+                            size: self.width + 4, self.width + 4  
+
                     Image:
                         source: 'Image/ButtonBack.png'
                         center_x: self.parent.center_x
                         center_y: self.parent.center_y
-                        size: 30, 30
+                        size: 28, 28
 
-            # Image placeholder
             Image:
                 # source: 'gambar.png'
                 size_hint: None, None
@@ -121,7 +136,7 @@
                 color: 0.15, 0.15, 0.15, 0.15
                 pos_hint: {'center_x': 0.5}
 
-            # Login text
+            # Judul Login 
             Label:
                 text: 'Login'
                 font_size: '40sp'
@@ -129,83 +144,76 @@
                 size_hint_y: None
                 height: 45
                 pos_hint: {'center_x': 0.5}
-                halign: 'left'
 
-            # Lorem ipsum text
+            # Teks Lorem ipsum 
             Label:
                 text: 'Lorem ipsum dolor sit amet'
                 font_size: '16sp'
                 color: 0.5, 0.5, 0.5, 0.7
                 size_hint_y: None
-                height: 45
+                height: 30
                 pos_hint: {'center_x': 0.5}
 
-            # Spacer
             Widget:
                 size_hint_y: None
-                height: 40
+                height: 20
 
-            # Login form
+            # Formulir Login 
             BoxLayout:
                 orientation: 'vertical'
-                spacing: 15
+                spacing: 20  # Increased spacing
                 size_hint_y: None
-                height: 150
+                height: 170  # Adjusted height
 
                 TextInput:
                     id: email
                     hint_text: 'Email'
                     multiline: False
-                    size_hint: 0.8, None  # Mengatur lebar 80% dari induk
+                    size_hint: 0.8, None  
                     height: 45
                     padding: [20, 10, 20, 10]
                     background_color: 0.9, 0.9, 0.9, 1
                     background_normal: ''
                     cursor_color: 0.3, 0.3, 0.3, 1
-                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
+                    pos_hint: {'center_x': 0.5}  
 
                 TextInput:
                     id: password
                     hint_text: 'Password'
                     multiline: False
                     password: True
-                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    size_hint: 0.8, None 
                     height: 45
                     padding: [20, 10, 20, 10]
                     background_color: 0.9, 0.9, 0.9, 1
                     background_normal: ''
                     cursor_color: 0.3, 0.3, 0.3, 1
-                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
-                
-                # Spacer to push content down
-                Widget:
-                    size_hint_y: None
-                    height: 30
+                    pos_hint: {'center_x': 0.5}  
 
                 Button:
                     text: 'LOGIN'
-                    size_hint: 0.8, None # Mengatur lebar 80% dari induk
+                    size_hint: 0.8, None 
                     height: 45
                     background_color: 0.7, 0.7, 0.7, 1
                     background_normal: ''
-                    pos_hint: {'center_x': 0.5}  # Posisikan di tengah
-                    on_press: root.validate_credentials()
+                    pos_hint: {'center_x': 0.5}  
+                    on_press: root.validasi_kredensial()
 
                 Label: 
                     id: error_label 
                     text: '' 
-                    color: 1, 0, 0, 1  # Merah  
+                    color: 1, 0, 0, 1 
 
-<HomeScreen>:  # Tampilan Beranda Petugas !!
+<BerandaPetugasScreen>:  # Tampilan Beranda Petugas !!
     orientation: 'vertical'
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1  
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header Section
+    # Header 
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
@@ -214,6 +222,7 @@
         pos_hint: {'top': 1}
         spacing: 5
         Image:
+            # source: 'gambar.png'
             size_hint: None, None
             size: 40, 40
             pos_hint: {'center_y': 0.5}
@@ -234,16 +243,16 @@
         orientation: 'vertical'
         padding: [20, 0]
 
-        # Spacer antara header dan welcome text
         Widget:
             size_hint_y: 0.3
 
-        # Welcome Text Section
+        # Teks Selamat Datang 
         BoxLayout:
             orientation: 'vertical'
             size_hint_y: None
             height: self.minimum_height
             spacing: 5
+
             Label:
                 text: 'Selamat datang, Dokter Afifah!'
                 font_size: '20sp'
@@ -252,6 +261,7 @@
                 halign: 'center'
                 size_hint_y: None
                 height: self.texture_size[1]
+
             Label:
                 text: 'Lorem ipsum dolor sit amet'
                 font_size: '16sp'
@@ -261,22 +271,23 @@
                 height: self.texture_size[1]
                 padding: [0, 0, 0, 20]
 
-        # Spacer kecil sebelum kotak pertama
         Widget:
             size_hint_y: 0.1
 
-        # Kotak Pertama dengan Teks
+        # Kotak Pertama 
         BoxLayout:
             orientation: 'vertical'
             size_hint_y: None
             height: 270
             padding: [15, 25, 15, 10]
+
             canvas.before:
                 Color:
                     rgba: 0.9, 0.9, 0.9, 1
                 Rectangle:
                     pos: self.pos
                     size: self.size
+
             Label:
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                 text_size: self.width - dp(20), None
@@ -288,7 +299,6 @@
                 padding_y: dp(60)  
                 color: 0.3, 0.3, 0.3, 1
 
-        # Spacer besar antara kotak
         Widget:
             size_hint_y: 0.1
 
@@ -298,6 +308,7 @@
             size_hint_y: None
             height: 270
             padding: [15, 15]
+
             canvas.before:
                 Color:
                     rgba: 0.9, 0.9, 0.9, 1
@@ -305,11 +316,10 @@
                     pos: self.pos
                     size: self.size
 
-        # Spacer kecil sebelum footer
         Widget:
             size_hint_y: 0.35
 
-    # Footer Section
+    # Footer Navigasi Bar
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
@@ -319,12 +329,12 @@
         Button:
             text: 'Beranda'
             font_size: '14sp'
-            on_press: app.root.current = 'home'
+            on_press: app.root.current = 'beranda_petugas'
         Button:
             text: 'Info Antrian'
             font_size: '14sp'
-            on_press: app.root.current = 'information'
+            on_press: app.root.current = 'informasi_antrian'
         Button:
             text: 'KelolaPasien'
             font_size: '14sp'
-            on_press: app.root.current = 'kelola'
+            on_press: app.root.current = 'kelola_pasien'

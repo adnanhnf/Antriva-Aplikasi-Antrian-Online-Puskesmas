@@ -1,43 +1,40 @@
-<KelolaPasienScreen>:  # Tampilan Kelola Pasien
+<KelolaPasienScreen>:  # Tampilan Kelola Pasien !!
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
             Color:
-                rgba: 0.95, 0.95, 0.95, 1
+                rgba: 1, 1, 1, 1
             Rectangle:
                 pos: self.pos
                 size: self.size
 
-        # Header Section
+        # Header
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: None
             height: 60
-            padding: '10dp'
-            spacing: '5dp'
-            canvas.before:
-                Color:
-                    rgba: 1, 1, 1, 1
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-
+            padding: [10, 10]
+            pos_hint: {'top': 1}
+            spacing: 5
             Image:
+                # source: 'gambar.png'
                 size_hint: None, None
-                size: '40dp', '40dp'
+                size: 40, 40
                 pos_hint: {'center_y': 0.5}
+                color: 0.15, 0.15, 0.15, 0.15
 
             Label:
                 text: 'Kelola Pasien'
                 font_size: '20sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
-                text_size: self.size
                 halign: 'left'
                 valign: 'middle'
-                size_hint_x: 1
+                size_hint_x: None
+                width: self.texture_size[0] + dp(10)
+                text_size: None, self.height
 
-        # Content Area
+        # Konten Utama
         BoxLayout:
             orientation: 'vertical'
             spacing: '10dp'
@@ -48,7 +45,7 @@
                     pos: self.pos
                     size: self.size
 
-            # Title
+            # Teks Judul
             Label:
                 text: 'Lorem Ipsum dolor sit amet'
                 font_size: '22sp'
@@ -58,7 +55,7 @@
                 halign: 'center'
                 text_size: self.size
 
-            # Add Patient Button
+            # Tombol Tambah Pasien
             BoxLayout:
                 size_hint_y: None
                 height: '50dp'
@@ -69,15 +66,14 @@
                     size_hint_x: None
                     width: '160dp'
                     pos_hint: {'left': 0.5}
-                    on_press: root.tambah_pasien()
+                    on_press: app.root.current = 'tambah_pasien'
 
-            # Table Header
+            # Header Tabel
             GridLayout:
                 cols: 5
                 size_hint_y: None
-                height: '40dp'
-                padding: [5, 5]
-                spacing: [1, 1]
+                height: 50
+                pos_hint: {'top': 0.9}
                 canvas.before:
                     Color:
                         rgba: 0.8, 0.8, 0.8, 1
@@ -90,23 +86,23 @@
                     bold: True
                     color: 0, 0, 0, 1
                 Label:
-                    text: 'lorem'
+                    text: 'Nama'
                     bold: True
                     color: 0, 0, 0, 1
                 Label:
-                    text: 'ipsum'
-                    bold: True
-                    color: 0, 0, 0, 1
-                Label:
-                    text: 'dolor'
+                    text: 'Email'
                     bold: True
                     color: 0, 0, 0, 1
                 Label:
                     text: 'Aksi'
                     bold: True
                     color: 0, 0, 0, 1
+                Label:
+                    text: 'Detail\nPasien'
+                    bold: True
+                    color: 0, 0, 0, 1
 
-            # Scrollable Content
+            # Scroll Isi Tabel
             ScrollView:
                 size_hint: (1, 0.7)
                 do_scroll_x: False
@@ -125,8 +121,7 @@
                             rectangle: self.x, self.y, self.width, self.height
                             width: 1
 
-                    # Dynamic content generation example
-                    # Replace this with data-driven row creation
+                    # Baris Konten Tabel
                     Label:
                         text: '1'
                         color: 0, 0, 0, 1
@@ -140,9 +135,9 @@
                         text: '--'
                         color: 0, 0, 0, 1
                     Button:
-                        text: 'Kelola'
+                        text: 'Detail'
                         font_size: '12sp'
-                        on_press: root.kelola(1)
+                        on_press: app.root.current = 'detail_pasien'
 
                     Label:
                         text: '2'
@@ -157,9 +152,9 @@
                         text: '--'
                         color: 0, 0, 0, 1
                     Button:
-                        text: 'Kelola'
+                        text: 'Detail'
                         font_size: '12sp'
-                        on_press: root.kelola(2)
+                        on_press: app.root.current = 'detail_pasien'
 
                     Label:
                         text: '3'
@@ -174,9 +169,9 @@
                         text: '--'
                         color: 0, 0, 0, 1
                     Button:
-                        text: 'Kelola'
+                        text: 'Detail'
                         font_size: '12sp'
-                        on_press: root.kelola(3)
+                        on_press: app.root.current = 'detail_pasien'
 
                     Label:
                         text: '4'
@@ -191,9 +186,9 @@
                         text: '--'
                         color: 0, 0, 0, 1
                     Button:
-                        text: 'Kelola'
+                        text: 'Detail'
                         font_size: '12sp'
-                        on_press: root.kelola(4)
+                        on_press: app.root.current = 'detail_pasien'
 
         # Navigation Bar
         BoxLayout:
@@ -206,12 +201,12 @@
             Button:
                 text: 'Beranda'
                 font_size: '14sp'
-                on_press: app.root.current = 'home'
+                on_press: app.root.current = 'beranda_petugas'
             Button:
                 text: 'Info Antrian'
                 font_size: '14sp'
-                on_press: app.root.current = 'information'
+                on_press: app.root.current = 'informasi_antrian'
             Button:
                 text: 'Kelola Pasien'
                 font_size: '14sp'
-                on_press: app.root.current = 'kelola'
+                on_press: app.root.current = 'kelola_pasien'

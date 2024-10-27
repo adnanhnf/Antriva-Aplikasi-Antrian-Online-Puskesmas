@@ -94,15 +94,15 @@
                 size_hint_x: None
                 width: 50
                 background_normal: ''
-                background_color: 1, 1, 1, 0  # Transparan
+                background_color: 1, 1, 1, 0  
                 on_press: root.go_back()
 
                 canvas.before:
                     Color:
-                        rgba: 1, 1, 1, 1  # Warna putih
+                        rgba: 1, 1, 1, 1  
                     Ellipse:
                         pos: self.x - 2, self.center_y - self.width / 2 - 2
-                        size: self.width + 4, self.width + 4  # Lingkaran
+                        size: self.width + 4, self.width + 4  
 
                 Image:
                     source: 'Image/ButtonBack.png'
@@ -110,7 +110,7 @@
                     center_y: self.parent.center_y
                     size: 28, 28
 
-            Widget:  # Spacer
+            Widget:  
                 size_hint_x: 1
 
         # Main content

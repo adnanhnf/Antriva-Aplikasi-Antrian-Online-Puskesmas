@@ -1,51 +1,40 @@
 <TambahPasienScreen>:
     orientation: 'vertical'
-
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1  
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header Section
+    # Header 
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
-        height: 70
+        height: 60
         padding: [10, 10]
-        
-        Button:
-            size_hint_x: None
-            width: 50
-            background_normal: ''
-            background_color: 1, 1, 1, 0  # Transparan untuk menghilangkan latar belakang default
-            on_press: root.back()
+        pos_hint: {'top': 1}
+        spacing: 5
+        Image:
+            # source: 'gambar.png'
+            size_hint: None, None
+            size: 40, 40
+            pos_hint: {'center_y': 0.5}
+            color: 0.15, 0.15, 0.15, 0.15
 
-            canvas.before:
-                Color:
-                    rgba: 1, 1, 1, 1  # Warna putih
-                Ellipse:
-                    pos: self.x - 2, self.center_y - self.width / 2 - 2
-                    size: self.width + 4, self.width + 4  # Membuat lingkaran dengan ukuran button
-
-            Image:
-                source: 'Image/ButtonBack.png'
-                center_x: self.parent.center_x
-                center_y: self.parent.center_y
-                size: 28, 28
-        
+        #Teks Judul Tambah Pasien
         Label:
-            text: '  Tambah Pasien'
+            text: 'Tambah Pasien'
             font_size: '20sp'
             bold: True
             color: 0.2, 0.2, 0.2, 1
-            valign: 'middle'
             halign: 'left'
-            size_hint_x: 1
-            text_size: self.size
+            valign: 'middle'
+            size_hint_x: None
+            width: self.texture_size[0] + dp(10)
+            text_size: None, self.height
     
-    # Form Fields
+    # Formulir Tambah Pasien
     BoxLayout:
         orientation: 'vertical'
         padding: [20, 20]
@@ -122,12 +111,11 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
 
-    # Spacer to push buttons down
     Widget:
         size_hint_y: None
         height: 20
 
-    # Action Buttons
+    # Tombol Batal dan Simpan
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
@@ -139,10 +127,10 @@
             text: 'BATAL'
             background_normal: ''
             background_color: 0.7, 0.7, 0.7, 1
-            on_press: root.cancel()
+            on_press: root.batal()
 
         Button:
-            text: 'TAMBAH'
+            text: 'SIMPAN'
             background_normal: ''
             background_color: 0.2, 0.6, 1, 1
-            on_press: root.add_patient()
+            on_press: root.simpan()

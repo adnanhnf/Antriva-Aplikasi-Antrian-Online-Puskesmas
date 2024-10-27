@@ -1,24 +1,27 @@
-<DetailAntrianScreen>:
+<DetailAntrianScreen>: # Tampilan Detail Antrian Pasien (Petugas) !!
     orientation: 'vertical'
-
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header layout
+    # Header
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
         height: 60
         padding: [10, 10]
+        pos_hint: {'top': 1}  
+        spacing: 5  
 
         Image:
-            source: 'path_to_logo.png'
+            # source: 'path_to_your_logo.png'  
             size_hint: None, None
-            size: 40, 40
+            size: 40, 40  
+            pos_hint: {'center_y': 0.5}  
+            color: 0.15, 0.15, 0.15, 0.15
 
         Label:
             text: 'Info Antrian'
@@ -27,14 +30,17 @@
             color: 0.2, 0.2, 0.2, 1
             halign: 'left'
             valign: 'middle'
+            size_hint_x: None
+            width: self.texture_size[0] + dp(10)
+            text_size: None, self.height
 
-    # Main content (detail antrian)
+    # Konten Utama
     BoxLayout:
         orientation: 'vertical'
         padding: [20, 10]
-        spacing: 20  # Increased spacing for better layout
+        spacing: 20  
 
-        # Detail Antrian title
+        # Judul Detail Antrian 
         Label:
             text: 'Detail Antrian Pasien'
             font_size: '24sp'
@@ -45,7 +51,7 @@
             size_hint_y: None
             height: 40
 
-        # Box for No Antrian with upper and lower lines
+        # Detail Informasi Antrian Pasien
         BoxLayout:
             orientation: 'vertical'
             padding: [10, 0]  # Removed padding above to reduce spacing
@@ -77,9 +83,10 @@
                 size_hint_y: None
                 height: 80
 
-        Widget:  # Used for the second line
+        Widget:  
             size_hint_y: None
             height: 10
+
             canvas.before:
                 Color:
                     rgba: 0.3, 0.3, 0.3, 1
@@ -87,10 +94,10 @@
                     points: self.x, self.y, self.right, self.y
                     width: 1.5
 
-        # BoxLayout for labels to align to the left
+        # Isi Konten NIK, Tanggal Antrian, dan Poli
         BoxLayout:
             orientation: 'vertical'
-            spacing: 10  # Reduced spacing for a cleaner layout
+            spacing: 10  
             padding: [20, 0]
 
             Label:
@@ -120,7 +127,7 @@
                 size_hint_y: None
                 height: 50
 
-        # Buttons for Pelayanan
+        # Tombol Pelayanan Selesai dan Dibatalkan
         BoxLayout:
             orientation: 'vertical'
             padding: [20, 10]
@@ -139,23 +146,3 @@
                 height: 45
                 background_color: 0.8, 0.2, 0.2, 1
                 on_press: root.pelayanan_dibatalkan()
-
-    # Footer (menu bar)
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 60
-        padding: [10, 10]
-        spacing: 20
-
-        Button:
-            text: 'Beranda'
-            on_press: root.go_to_beranda()
-
-        Button:
-            text: 'Info Antrian'
-            on_press: root.go_to_info_antrian()
-
-        Button:
-            text: 'Kelola Pasien'
-            on_press: root.go_to_kelola_pasien()
