@@ -1,70 +1,83 @@
-<KelolaPasienScreen>:
-    orientation: 'vertical'
-
-    canvas.before:
-        Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
-        Rectangle:
-            pos: self.pos
-            size: self.size
-
-    # Header Section
+<KelolaPasienScreen>:  # Tampilan Kelola Pasien
     BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 60
-        padding: [10, 10]
-        pos_hint: {'top': 1}  # Memastikan header di atas
-        spacing: 5  # Mengurangi jarak antara logo dan teks
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.95, 0.95, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
 
-        Image:
-            # source: 'path_to_your_logo.png'  # Ganti dengan path logo
-            size_hint: None, None
-            size: 40, 40  # Ukuran logo
-            pos_hint: {'center_y': 0.5}  # Posisikan di tengah secara vertikal
-            color: 0.15, 0.15, 0.15, 0.15
-
-        Label:
-            text: 'Kelola Pasien'
-            font_size: '20sp'
-            bold: True
-            color: 0.2, 0.2, 0.2, 1
-            halign: 'left'
-            valign: 'middle'
-            size_hint_x: None  # Mengatur lebar label
-            width: self.texture_size[0] + dp(10)  # Lebar sesuai teks + sedikit padding
-            text_size: None, self.height  # Memastikan teks tetap di tengah vertikal
-
-    # Padding antara Header dan ScrollView
-    Widget:
-        size_hint_y: None
-        height: 20  # Tambahkan jarak antara header dan konten
-
-    # Main Content Section (Table) dalam ScrollView
-    ScrollView:
-        do_scroll_x: False  # Disable horizontal scroll
-        do_scroll_y: True  # Enable vertical scroll
-        size_hint_y: 0.8  # Mengatur ukuran agar tabel tidak terlalu panjang
-
+        # Header Section
         BoxLayout:
-            orientation: 'vertical'
-            padding: [10, 10]
+            orientation: 'horizontal'
             size_hint_y: None
-            height: self.minimum_height  # Agar konten sesuai tinggi konten
+            height: 60
+            padding: '10dp'
+            spacing: '5dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Image:
+                size_hint: None, None
+                size: '40dp', '40dp'
+                pos_hint: {'center_y': 0.5}
 
             Label:
-                text: 'Lorem Ipsum Dolor Sit'
-                font_size: '18sp'
-                color: 0.0, 0.0, 0.0, 1  # Ubah warna teks menjadi hitam
-                size_hint_y: None
-                height: 40
+                text: 'Kelola Pasien'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+                size_hint_x: 1
 
-            # Main Content Section (Table)
-            GridLayout:
-                cols: 4
+        # Content Area
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            # Title
+            Label:
+                text: 'Lorem Ipsum dolor sit amet'
+                font_size: '22sp'
+                color: 0, 0, 0, 1
                 size_hint_y: None
-                height: 40
-                pos_hint: {'top': 0.9}
+                height: '40dp'
+                halign: 'center'
+                text_size: self.size
+
+            # Add Patient Button
+            BoxLayout:
+                size_hint_y: None
+                height: '50dp'
+                padding: '10dp'
+
+                Button:
+                    text: '+ Tambah Pasien'
+                    size_hint_x: None
+                    width: '160dp'
+                    pos_hint: {'left': 0.5}
+                    on_press: root.tambah_pasien()
+
+            # Table Header
+            GridLayout:
+                cols: 5
+                size_hint_y: None
+                height: '40dp'
+                padding: [5, 5]
+                spacing: [1, 1]
                 canvas.before:
                     Color:
                         rgba: 0.8, 0.8, 0.8, 1
@@ -72,7 +85,6 @@
                         rectangle: self.x, self.y, self.width, self.height
                         width: 1
 
-                # Table headers
                 Label:
                     text: 'No'
                     bold: True
@@ -90,111 +102,107 @@
                     bold: True
                     color: 0, 0, 0, 1
                 Label:
-                    text: ''  # Empty for "Kelola" column
-                
-        # Scrollable Content
-        ScrollView:
-            size_hint: (1, 0.7)
-            pos_hint: {'top': 0.85}
-            GridLayout:
-                cols: 4
-                row_default_height: 40
-                size_hint_y: None
-                height: self.minimum_height
-                spacing: [1, 1]
-                canvas.before:
-                    Color:
-                        rgba: 0.8, 0.8, 0.8, 1
-                    Line:
-                        rectangle: self.x, self.y, self.width, self.height
-                        width: 1
+                    text: 'Aksi'
+                    bold: True
+                    color: 0, 0, 0, 1
 
-                # Table Content Rows
-                Label:
-                    text: '1'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Button:
-                    text: 'Kelola'
-                    on_press: root.kelola(1)
+            # Scrollable Content
+            ScrollView:
+                size_hint: (1, 0.7)
+                do_scroll_x: False
+                do_scroll_y: True
 
-                Label:
-                    text: '2'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Button:
-                    text: 'Kelola'
-                    on_press: root.kelola(2)
+                GridLayout:
+                    cols: 5
+                    row_default_height: '40dp'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: [1, 1]
+                    canvas.before:
+                        Color:
+                            rgba: 0.8, 0.8, 0.8, 1
+                        Line:
+                            rectangle: self.x, self.y, self.width, self.height
+                            width: 1
 
-                Label:
-                    text: '3'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Button:
-                    text: 'Kelola'
-                    on_press: root.kelola(3)
+                    # Dynamic content generation example
+                    # Replace this with data-driven row creation
+                    Label:
+                        text: '1'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Button:
+                        text: 'Kelola'
+                        font_size: '12sp'
+                        on_press: root.kelola(1)
 
-                Label:
-                    text: '4'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Label:
-                    text: '--'
-                    color: 0, 0, 0, 1
-                Button:
-                    text: 'Kelola'
-                    on_press: root.kelola(4)
+                    Label:
+                        text: '2'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Button:
+                        text: 'Kelola'
+                        font_size: '12sp'
+                        on_press: root.kelola(2)
 
-        # Add "Tambah Pasien" Button
-        BoxLayout:
-            size_hint_y: None
-            height: 50
-            Button:
-                text: '+ Tambah Pasien'
-                size_hint_x: None
-                width: 150
-                on_press: root.tambah_pasien()
+                    Label:
+                        text: '3'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Button:
+                        text: 'Kelola'
+                        font_size: '12sp'
+                        on_press: root.kelola(3)
 
-    # Navigation Bar sebagai footer di bawah   
-    AnchorLayout:
-        anchor_x: 'center'
-        anchor_y: 'bottom'
-            
+                    Label:
+                        text: '4'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Label:
+                        text: '--'
+                        color: 0, 0, 0, 1
+                    Button:
+                        text: 'Kelola'
+                        font_size: '12sp'
+                        on_press: root.kelola(4)
+
+        # Navigation Bar
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: None
             height: 60
             padding: [10, 10]
             spacing: 20
+
             Button:
                 text: 'Beranda'
                 font_size: '14sp'
@@ -204,6 +212,6 @@
                 font_size: '14sp'
                 on_press: app.root.current = 'information'
             Button:
-                text: 'KelolaPasien'
+                text: 'Kelola Pasien'
                 font_size: '14sp'
                 on_press: app.root.current = 'kelola'
