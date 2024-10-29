@@ -1,4 +1,4 @@
-<DetailAntrianScreen>: # Tampilan Detail Antrian Pasien (Petugas) !!
+<DetailAntrianScreen>:
     orientation: 'vertical'
     canvas.before:
         Color:
@@ -34,13 +34,16 @@
             width: self.texture_size[0] + dp(10)
             text_size: None, self.height
 
-    # Konten Utama
+    # Main Content
     BoxLayout:
         orientation: 'vertical'
         padding: [20, 10]
         spacing: 20  
 
-        # Judul Detail Antrian 
+        Widget:
+            size_hint_y: 0.2
+
+        # Title for Detail Antrian
         Label:
             text: 'Detail Antrian Pasien'
             font_size: '24sp'
@@ -51,17 +54,24 @@
             size_hint_y: None
             height: 40
 
-        # Detail Informasi Antrian Pasien
+        # Queue Number Section with Top and Bottom Lines
         BoxLayout:
             orientation: 'vertical'
-            padding: [10, 0]  # Removed padding above to reduce spacing
+            padding: [10, 0]
+            
+            Widget:
+                size_hint_y: 0.2
 
-            canvas.before:
-                Color:
-                    rgba: 0.3, 0.3, 0.3, 1
-                Line:
-                    points: self.x, self.top, self.right, self.top
-                    width: 1.5
+            # Top Divider line
+            BoxLayout:
+                size_hint_y: None
+                height: 1
+                canvas.before:
+                    Color:
+                        rgba: 0.7, 0.7, 0.7, 1
+                    Rectangle:
+                        pos: self.x, self.top - 1  # Slightly adjust to draw right above the content
+                        size: self.width, 1
 
             Label:
                 text: 'No Antrian Pasien'
@@ -74,7 +84,7 @@
                 height: 40
 
             Label:
-                text: 'XXX'
+                text: '019'
                 font_size: '36sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
@@ -83,18 +93,14 @@
                 size_hint_y: None
                 height: 80
 
-        Widget:  
-            size_hint_y: None
-            height: 10
+                canvas.after:
+                    Color:
+                        rgba: 0.7, 0.7, 0.7, 1
+                    Rectangle:
+                        pos: self.x, self.y
+                        size: self.width, 1
 
-            canvas.before:
-                Color:
-                    rgba: 0.3, 0.3, 0.3, 1
-                Line:
-                    points: self.x, self.y, self.right, self.y
-                    width: 1.5
-
-        # Isi Konten NIK, Tanggal Antrian, dan Poli
+        # Content for NIK, Queue Date, and Poli
         BoxLayout:
             orientation: 'vertical'
             spacing: 10  
@@ -127,7 +133,7 @@
                 size_hint_y: None
                 height: 50
 
-        # Tombol Pelayanan Selesai dan Dibatalkan
+        # Buttons for Complete and Cancel Service
         BoxLayout:
             orientation: 'vertical'
             padding: [20, 10]
