@@ -17,7 +17,6 @@
         spacing: 5  
 
         Image:
-            # source: 'path_to_your_logo.png'  
             size_hint: None, None
             size: 40, 40  
             pos_hint: {'center_y': 0.5}  
@@ -34,12 +33,39 @@
             width: self.texture_size[0] + dp(10)
             text_size: None, self.height
 
+    # Teks Judul
+    Label:
+        text: 'Lorem Ipsum dolor sit amet'
+        font_size: '22sp'
+        color: 0, 0, 0, 1
+        size_hint_y: None
+        height: '40dp'
+        pos_hint: {'top': 0.95}
+        halign: 'center'
+        text_size: self.size
+
+    # Tombol Panggil Pasien
+    BoxLayout:
+        size_hint_y: None
+        height: '50dp'
+        padding: '10dp'
+        pos_hint: {'top': 0.9}
+
+        Button:
+            text: 'Panggil Pasien'
+            size_hint_x: None
+            width: '160dp'
+            pos_hint: {'left': 0.5}
+            on_press: root.panggil_pasien()
+
     # Konten Tabel
     GridLayout:
         cols: 5
         size_hint_y: None
         height: 50
-        pos_hint: {'top': 0.9}
+        pos_hint: {'top': 0.8}
+        padding: [5, 5]
+        spacing: 5
         canvas.before:
             Color:
                 rgba: 0.8, 0.8, 0.8, 1
@@ -64,7 +90,7 @@
             color: 0, 0, 0, 1
             size_hint_x: 0.2
         Label:
-            text: 'Aksi'
+            text: 'Status'
             bold: True
             color: 0, 0, 0, 1
             size_hint_x: 0.2
@@ -76,14 +102,15 @@
 
     # Scroll Isi Tabel
     ScrollView:
-        size_hint: (1, 0.7)
-        pos_hint: {'top': 0.85}
+        size_hint: (1, 0.6)
+        pos_hint: {'top': 0.74}
         GridLayout:
             cols: 5
-            row_default_height: 40
+            row_default_height: 45
             size_hint_y: None
             height: self.minimum_height
-            spacing: [1, 1]
+            spacing: [5, 2]
+            padding: [5, 5]
             canvas.before:
                 Color:
                     rgba: 0.8, 0.8, 0.8, 1

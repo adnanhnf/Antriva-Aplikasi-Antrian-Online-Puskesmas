@@ -10,17 +10,27 @@ Window.clearcolor = (0.95, 0.95, 0.95, 1)
 class DetailAntrianScreen(Screen):
     def pelayanan_selesai(self):
         # Logika untuk menyimpan data
-        self.simpan_data()
+        self.antrian_selesai()
         
-        # Kembali ke Tampilan Informasi Antrian Setelah Menyimpan Data
+        # Kembali ke Tampilan Informasi Antrian Setelah Pelayanan Selesai
         App.get_running_app().root.current = 'informasi_antrian'
 
     def pelayanan_dibatalkan(self):
-        # Tidak Menyimpan Data, Langsung Kembali ke Tampilan Informasi Antrian
+        # Logika untuk menyimpan data
+        self.antrian_batal()
+        
+        # Kembali ke Tampilan Informasi Antrian Setelah Pelayanan Dibatalkan
         App.get_running_app().root.current = 'informasi_antrian'
 
-    def simpan_data(self):
+    def antrian_selesai(self):
         # Contoh Logika Penyimpanan Data
-        print("Data telah disimpan")
+        print("Antrian ini telah selesai !!")
+    
+    def antrian_batal(self):
+        # Contoh Logika Penyimpanan Data
+        print("Antrian ini telah dibatalkan !!")
+    
+    def kembali(self):
+        self.manager.current = 'informasi_antrian'
 
 Builder.load_file('DetaildanTambah/DetailAntrian.kv')

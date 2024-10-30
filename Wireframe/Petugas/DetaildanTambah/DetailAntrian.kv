@@ -12,27 +12,52 @@
         orientation: 'horizontal'
         size_hint_y: None
         height: 60
-        padding: [10, 10]
-        pos_hint: {'top': 1}  
+        padding: [5, 5]
         spacing: 5  
+        pos_hint: {'top': 1}
 
-        Image:
-            # source: 'path_to_your_logo.png'  
-            size_hint: None, None
-            size: 40, 40  
-            pos_hint: {'center_y': 0.5}  
-            color: 0.15, 0.15, 0.15, 0.15
-
-        Label:
-            text: 'Info Antrian'
-            font_size: '20sp'
-            bold: True
-            color: 0.2, 0.2, 0.2, 1
-            halign: 'left'
-            valign: 'middle'
+        # Tombol Kembali
+        AnchorLayout:
             size_hint_x: None
-            width: self.texture_size[0] + dp(10)
-            text_size: None, self.height
+            width: 60  # Sesuaikan agar pas dengan tombol kembali
+            anchor_x: 'left'
+            anchor_y: 'center'
+
+            Button:
+                size_hint: None, None
+                size: 50, 50
+                background_normal: ''
+                background_color: 1, 1, 1, 0
+                on_press: root.kembali()
+
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1  
+                    Ellipse:
+                        pos: self.x - 2, self.center_y - self.width / 2 - 2
+                        size: self.width + 4, self.width + 4  
+
+                Image:
+                    source: 'Image/ButtonBack.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                    size: 28, 28
+
+        # Label Info Antrian
+        AnchorLayout:
+            anchor_x: 'left'
+            anchor_y: 'center'
+            padding: [0, 0]
+
+            Label:
+                text: 'Info Antrian'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'left'
+                valign: 'middle'
+                size_hint: None, None
+                size: self.texture_size  # Ukuran disesuaikan dengan teks
 
     # Main Content
     BoxLayout:
@@ -53,14 +78,16 @@
             valign: 'middle'
             size_hint_y: None
             height: 40
+        
+        Widget:
+            size_hint_y: 0.05
 
         # Queue Number Section with Top and Bottom Lines
         BoxLayout:
             orientation: 'vertical'
-            padding: [10, 0]
-            
-            Widget:
-                size_hint_y: 0.2
+            padding: 10
+            size_hint_y: None
+            height: 100
 
             # Top Divider line
             BoxLayout:
@@ -70,28 +97,28 @@
                     Color:
                         rgba: 0.7, 0.7, 0.7, 1
                     Rectangle:
-                        pos: self.x, self.top - 1  # Slightly adjust to draw right above the content
+                        pos: self.x, self.y # Slightly adjust to draw right above the content
                         size: self.width, 1
 
             Label:
                 text: 'No Antrian Pasien'
-                font_size: '20sp'
+                font_size: '22sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
                 halign: 'center'
                 valign: 'middle'
                 size_hint_y: None
-                height: 40
-
+                height: 50
+    
             Label:
                 text: '019'
-                font_size: '36sp'
+                font_size: '18sp'
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
                 halign: 'center'
                 valign: 'middle'
                 size_hint_y: None
-                height: 80
+                height: 50
 
                 canvas.after:
                     Color:
@@ -105,6 +132,7 @@
             orientation: 'vertical'
             spacing: 10  
             padding: [20, 0]
+            size_hint_y: 0.6
 
             Label:
                 text: 'NIK\nLorem ipsum dolor sit amet'
@@ -114,6 +142,7 @@
                 valign: 'middle'
                 size_hint_y: None
                 height: 50
+                text_size: self.width, None
 
             Label:
                 text: 'TGL ANTRIAN\nLorem-ipsum dolor sit amet'
@@ -123,6 +152,7 @@
                 valign: 'middle'
                 size_hint_y: None
                 height: 50
+                text_size: self.width, None
             
             Label:
                 text: 'POLI\nLorem ipsum dolor sit amet'
@@ -132,6 +162,7 @@
                 valign: 'middle'
                 size_hint_y: None
                 height: 50
+                text_size: self.width, None
 
         # Buttons for Complete and Cancel Service
         BoxLayout:
@@ -152,3 +183,7 @@
                 height: 45
                 background_color: 0.8, 0.2, 0.2, 1
                 on_press: root.pelayanan_dibatalkan()
+
+            Widget:
+                size_hint_y: None
+                height: 100

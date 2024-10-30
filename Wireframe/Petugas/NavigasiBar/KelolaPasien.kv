@@ -72,8 +72,9 @@
             GridLayout:
                 cols: 5
                 size_hint_y: None
-                height: 50
-                pos_hint: {'top': 0.9}
+                height: 45
+                padding: [2, 0]
+                spacing: [1, 0]
                 canvas.before:
                     Color:
                         rgba: 0.8, 0.8, 0.8, 1
@@ -104,16 +105,20 @@
 
             # Scroll Isi Tabel
             ScrollView:
-                size_hint: (1, 0.7)
+                size_hint: (1, 0.6)
+                pos_hint: {'top' : 0.74}
                 do_scroll_x: False
                 do_scroll_y: True
+                spacing: 0
+                padding: 0
 
                 GridLayout:
                     cols: 5
-                    row_default_height: '40dp'
+                    row_default_height: '32dp'
                     size_hint_y: None
                     height: self.minimum_height
-                    spacing: [1, 1]
+                    spacing: [1, 0]
+                    padding: [2, 0]
                     canvas.before:
                         Color:
                             rgba: 0.8, 0.8, 0.8, 1
