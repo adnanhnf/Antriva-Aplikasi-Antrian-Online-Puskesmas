@@ -7,8 +7,6 @@ from kivy.lang import Builder
 Window.size = (400, 700)
 
 class NotificationScreen(Screen):
-    @staticmethod
-    def tampilkan_notifikasi(pesan):
-        print(f"Notifikasi: {pesan}")
+    pass
 
 Builder.load_file('NavigasiBar/NotifikasiPasien.kv')

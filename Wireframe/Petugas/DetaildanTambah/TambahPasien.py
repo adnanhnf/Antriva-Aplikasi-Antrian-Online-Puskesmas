@@ -21,6 +21,6 @@ class TambahPasienScreen(Screen):
 
     def simpan_data(self):
         # Contoh Logika Penyimpanan Data
-        print("Data telah disimpan")
+        print("Data Pasien telah disimpan")
 
 Builder.load_file('DetaildanTambah/TambahPasien.kv')

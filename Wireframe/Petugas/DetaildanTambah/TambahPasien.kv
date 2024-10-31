@@ -1,4 +1,4 @@
-<TambahPasienScreen>:
+<TambahPasienScreen>: # Tampilan Tambah Pasien (Petugas) !!
     orientation: 'vertical'
     canvas.before:
         Color:
@@ -7,7 +7,7 @@
             pos: self.pos
             size: self.size
 
-    # Header 
+    # Header
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
@@ -22,7 +22,6 @@
             pos_hint: {'center_y': 0.5}
             color: 0.15, 0.15, 0.15, 0.15
 
-        #Teks Judul Tambah Pasien
         Label:
             text: 'Tambah Pasien'
             font_size: '20sp'
@@ -33,18 +32,25 @@
             size_hint_x: None
             width: self.texture_size[0] + dp(10)
             text_size: None, self.height
-    
+
     # Formulir Tambah Pasien
     BoxLayout:
         orientation: 'vertical'
         padding: [20, 20]
         spacing: 10
+        size_hint_y: None
+        height: 350  
+        pos_hint: {"center_y": 0.55}  
 
+        # Nama Lengkap
         Label:
             text: 'Nama Lengkap'
             size_hint_y: None
             height: 30
             color: 0.2, 0.2, 0.2, 1
+            halign: 'left'  
+            valign: 'middle'
+            text_size: self.size
 
         TextInput:
             multiline: False
@@ -54,11 +60,15 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
 
+        # NIK
         Label:
             text: 'NIK'
             size_hint_y: None
             height: 30
             color: 0.2, 0.2, 0.2, 1
+            halign: 'left'  
+            valign: 'middle'
+            text_size: self.size
 
         TextInput:
             multiline: False
@@ -68,11 +78,15 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
 
+        # Jenis Kelamin
         Label:
             text: 'Jenis Kelamin'
             size_hint_y: None
             height: 30
             color: 0.2, 0.2, 0.2, 1
+            halign: 'left'  
+            valign: 'middle'
+            text_size: self.size
 
         Spinner:
             text: 'Pilih'
@@ -80,14 +94,18 @@
             size_hint_y: None
             height: 40
             background_normal: ''
-            background_color: 1, 1, 1, 1
+            background_color: 0.9, 0.9, 0.9, 1
             color: 0.2, 0.2, 0.2, 1
 
+        # Alamat
         Label:
             text: 'Alamat'
             size_hint_y: None
             height: 30
             color: 0.2, 0.2, 0.2, 1
+            halign: 'left'  
+            valign: 'middle'
+            text_size: self.size
 
         TextInput:
             multiline: True
@@ -97,11 +115,15 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
 
+        # No HP
         Label:
             text: 'No HP'
             size_hint_y: None
             height: 30
             color: 0.2, 0.2, 0.2, 1
+            halign: 'left'  
+            valign: 'middle'
+            text_size: self.size
 
         TextInput:
             multiline: False
@@ -111,26 +133,27 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
 
-    Widget:
-        size_hint_y: None
-        height: 20
-
     # Tombol Batal dan Simpan
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
-        height: 70
-        padding: [40, 20]
+        height: 60  
+        padding: [20, 10]  
         spacing: 20
-
+        pos_hint: {"center_y": 0.2}
         Button:
             text: 'BATAL'
+            size_hint_x: 0.5  
+            font_size: '16sp'
+            height: 40
             background_normal: ''
             background_color: 0.7, 0.7, 0.7, 1
             on_press: root.batal()
-
         Button:
             text: 'SIMPAN'
+            size_hint_x: 0.5  
+            font_size: '16sp'
+            height: 40
             background_normal: ''
             background_color: 0.2, 0.6, 1, 1
-            on_press: root.simpan()
+            on_press: root.simpan_data()
