@@ -1,4 +1,4 @@
-<KelolaPasienScreen>:  # Tampilan Kelola Pasien !!
+<KelolaPasienScreen>:
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
@@ -17,11 +17,11 @@
             pos_hint: {'top': 1}
             spacing: 5
             Image:
-                # source: 'gambar.png'
+                source: 'Image/ManagePatient.png'
                 size_hint: None, None
                 size: 40, 40
                 pos_hint: {'center_y': 0.5}
-                color: 0.15, 0.15, 0.15, 0.15
+                color: 0.2, 0.2, 0.2, 0.6
 
             Label:
                 text: 'Kelola Pasien'
@@ -47,7 +47,7 @@
 
             # Teks Judul
             Label:
-                text: 'Lorem Ipsum dolor sit amet'
+                text: 'Data Pasien'
                 font_size: '22sp'
                 color: 0, 0, 0, 1
                 size_hint_y: None
@@ -66,13 +66,14 @@
                     size_hint_x: None
                     width: '160dp'
                     pos_hint: {'left': 0.5}
+                    background_color: 0.2, 0.6, 1, 1
                     on_press: app.root.current = 'tambah_pasien'
 
             # Header Tabel
             GridLayout:
-                cols: 5
+                cols: 5  
                 size_hint_y: None
-                height: 45
+                height: 50
                 padding: [2, 0]
                 spacing: [1, 0]
                 canvas.before:
@@ -86,22 +87,45 @@
                     text: 'No'
                     bold: True
                     color: 0, 0, 0, 1
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                    font_size: '12sp'
                 Label:
-                    text: 'Nama'
+                    text: 'Nama\nLengkap'
                     bold: True
                     color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+                    padding_x: dp(10)
+                    font_size: '12sp'
                 Label:
                     text: 'Email'
                     bold: True
                     color: 0, 0, 0, 1
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+                    padding_x: dp(15)
+                    font_size: '12sp'
                 Label:
-                    text: 'No.Telp'
+                    text: 'Aksi'
                     bold: True
                     color: 0, 0, 0, 1
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                    padding_x: dp(10)
+                    font_size: '12sp'
                 Label:
                     text: 'Detail\nPasien'
                     bold: True
                     color: 0, 0, 0, 1
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                    font_size: '12sp'
 
             # Scroll Isi Tabel
             ScrollView:
@@ -113,8 +137,9 @@
                 padding: 0
 
                 GridLayout:
+                    id: patient_grid
                     cols: 5
-                    row_default_height: '32dp'
+                    row_default_height: '80dp'  
                     size_hint_y: None
                     height: self.minimum_height
                     spacing: [1, 0]
@@ -126,74 +151,6 @@
                             rectangle: self.x, self.y, self.width, self.height
                             width: 1
 
-                    # Baris Konten Tabel
-                    Label:
-                        text: '1'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Button:
-                        text: 'Detail'
-                        font_size: '12sp'
-                        on_press: app.root.current = 'detail_pasien'
-
-                    Label:
-                        text: '2'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Button:
-                        text: 'Detail'
-                        font_size: '12sp'
-                        on_press: app.root.current = 'detail_pasien'
-
-                    Label:
-                        text: '3'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Button:
-                        text: 'Detail'
-                        font_size: '12sp'
-                        on_press: app.root.current = 'detail_pasien'
-
-                    Label:
-                        text: '4'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Label:
-                        text: '--'
-                        color: 0, 0, 0, 1
-                    Button:
-                        text: 'Detail'
-                        font_size: '12sp'
-                        on_press: app.root.current = 'detail_pasien'
 
         # Navigation Bar
         BoxLayout:

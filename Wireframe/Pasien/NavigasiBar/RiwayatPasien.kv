@@ -18,9 +18,10 @@
         spacing: 5
 
         Image:
+            source: 'Image/History.png'
             size_hint: None, None
             size: 40, 40
-            color: 0.15, 0.15, 0.15, 0.15
+            color: 0.2, 0.2, 0.2, 0.6
 
         Label:
             text: 'Riwayat'
@@ -50,24 +51,29 @@
             text: 'No'
             bold: True
             color: 0.0, 0.0, 0.0, 1
+            font_size: '12sp'
         Label:
-            text: 'Nama'
+            text: 'Nama Lengkap'
             bold: True
             color: 0.0, 0.0, 0.0, 1
+            font_size: '12sp'
         Label:
-            text: 'Tanggal\nPeriksa'
+            text: 'Tanggal\nAntrian'
             bold: True
             color: 0.0, 0.0, 0.0, 1
+            font_size: '12sp'
         Label:
             text: 'Poli'
             bold: True
             color: 0.0, 0.0, 0.0, 1
+            font_size: '12sp'
 
     # Scrollable Content
     ScrollView:
         size_hint: (1, 0.7)
         pos_hint: {'top': 0.85}
         GridLayout:
+            id: history_grid
             cols: 4
             row_default_height: 40
             size_hint_y: None
@@ -79,59 +85,6 @@
                 Line:
                     rectangle: self.x, self.y, self.width, self.height
                     width: 1
-
-            # Table Content Rows
-            Label:
-                text: '1'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-
-            Label:
-                text: '2'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-
-            Label:
-                text: '-'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-
-            Label:
-                text: '-'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
-            Label:
-                text: '---'
-                color: 0.0, 0.0, 0.0, 1
 
     # Footer Section
     BoxLayout:

@@ -46,7 +46,7 @@
                 bold: True
                 color: 0.2, 0.2, 0.2, 1
                 valign: 'middle'
-                size_hint_x: 1  
+                size_hint_x: 0.1  
 
             Widget:
                 size_hint_x: 0.1
@@ -64,6 +64,7 @@
             row_default_height: 30
             pos_hint: {"center_y": 0.5}  
 
+            # Email
             Label:
                 text: 'Email'
                 font_size: '16sp'
@@ -73,29 +74,14 @@
                 text_size: self.size
 
             Label:
-                text: '331103xxxxxxxxxxxx'
-                font_size: '16sp'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
-                valign: 'middle'
-                text_size: self.size
-
-            Label:
-                text: 'Password'
+                id: email_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
                 halign: 'left'
                 valign: 'middle'
                 text_size: self.size
 
-            Label:
-                text: 'lorem ipsum'
-                font_size: '16sp'
-                color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
-                valign: 'middle'
-                text_size: self.size
-
+            # NIK
             Label:
                 text: 'NIK'
                 font_size: '16sp'
@@ -105,13 +91,14 @@
                 text_size: self.size
 
             Label:
-                text: 'Lorem ipsum'
+                id: nik_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                halign: 'left'
                 valign: 'middle'
                 text_size: self.size
-
+            
+            # Nama 
             Label:
                 text: 'Nama'
                 font_size: '16sp'
@@ -121,13 +108,14 @@
                 text_size: self.size
 
             Label:
-                text: 'Lorem ipsum'
+                id: name_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                halign: 'left'
                 valign: 'middle'
                 text_size: self.size
 
+            # Jenis Kelamin
             Label:
                 text: 'Jenis Kelamin'
                 font_size: '16sp'
@@ -137,13 +125,14 @@
                 text_size: self.size
 
             Label:
-                text: 'Lorem ipsum'
+                id: jenis_kelamin_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                halign: 'left'
                 valign: 'middle'
                 text_size: self.size
 
+            # No. Telp
             Label:
                 text: 'No. Telp'
                 font_size: '16sp'
@@ -153,13 +142,14 @@
                 text_size: self.size
 
             Label:
-                text: '0988764'
+                id: no_telp_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                halign: 'left'
                 valign: 'middle'
                 text_size: self.size
 
+            # Alamat
             Label:
                 text: 'Alamat'
                 font_size: '16sp'
@@ -169,10 +159,10 @@
                 text_size: self.size
 
             Label:
-                text: 'Lorem ipsum dolor sit'
+                id: alamat_label
                 font_size: '16sp'
                 color: 0.2, 0.2, 0.2, 1
-                halign: 'right'
+                halign: 'left'
                 valign: 'middle'
                 text_size: self.size
 

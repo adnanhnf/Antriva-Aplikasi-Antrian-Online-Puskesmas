@@ -1,4 +1,4 @@
-<TambahPasienScreen>: # Tampilan Tambah Pasien (Petugas) !!
+<EditPasienScreen>: # Tampilan Edit Pasien (Petugas) !!
     orientation: 'vertical'
     canvas.before:
         Color:
@@ -16,14 +16,14 @@
         pos_hint: {'top': 1}
         spacing: 5
         Image:
-            source: 'Image/AddPatient.png'
+            source: 'Image/Edit.png'
             size_hint: None, None
             size: 40, 40
             pos_hint: {'center_y': 0.5}
             color: 0.2, 0.2, 0.2, 0.6
 
         Label:
-            text: 'Tambah Pasien'
+            text: 'Edit Pasien'
             font_size: '20sp'
             bold: True
             color: 0.2, 0.2, 0.2, 1
@@ -33,14 +33,14 @@
             width: self.texture_size[0] + dp(10)
             text_size: None, self.height
 
-    # Formulir Tambah Pasien
+    # Formulir Edit Pasien
     BoxLayout:
         orientation: 'vertical'
         padding: [20, 30]
         spacing: 10
         size_hint_y: None
         height: 350  
-        pos_hint: {"center_y": 0.33}  
+        pos_hint: {"center_y": 0.45}  
 
         # Nama Lengkap
         Label:
@@ -53,7 +53,7 @@
             text_size: self.size
 
         TextInput:
-            id: name
+            id: name_input
             multiline: False
             size_hint_y: None
             height: 40
@@ -61,44 +61,6 @@
             background_color: 1, 1, 1, 1
             foreground_color: 0, 0, 0, 1
         
-        # Email
-        Label:
-            text: 'Email'
-            size_hint_y: None
-            height: 30
-            color: 0.2, 0.2, 0.2, 1
-            halign: 'left'  
-            valign: 'middle'
-            text_size: self.size
-
-        TextInput:
-            id: email
-            multiline: False
-            size_hint_y: None
-            height: 40
-            background_normal: ''
-            background_color: 1, 1, 1, 1
-            foreground_color: 0, 0, 0, 1
-        
-        # Password
-        Label:
-            text: 'Password'
-            size_hint_y: None
-            height: 30
-            color: 0.2, 0.2, 0.2, 1
-            halign: 'left'  
-            valign: 'middle'
-            text_size: self.size
-
-        TextInput:
-            id: password
-            multiline: False
-            size_hint_y: None
-            height: 40
-            background_normal: ''
-            background_color: 1, 1, 1, 1
-            foreground_color: 0, 0, 0, 1
-
         # NIK
         Label:
             text: 'NIK'
@@ -110,7 +72,7 @@
             text_size: self.size
 
         TextInput:
-            id: nik
+            id: nik_input
             multiline: False
             size_hint_y: None
             height: 40
@@ -129,7 +91,7 @@
             text_size: self.size
 
         Spinner:
-            id: jenis_kelamin
+            id: jenis_kelamin_spinner
             text: 'Pilih'
             values: ['Laki-laki', 'Perempuan']
             size_hint_y: None
@@ -149,7 +111,7 @@
             text_size: self.size
 
         TextInput:
-            id: no_telp
+            id: no_telp_input
             multiline: False
             size_hint_y: None
             height: 40
@@ -168,7 +130,7 @@
             text_size: self.size
 
         TextInput:
-            id: alamat
+            id: alamat_input
             multiline: True
             size_hint_y: None
             height: 80
@@ -199,4 +161,4 @@
             height: 40
             background_normal: ''
             background_color: 0.2, 0.6, 1, 1
-            on_press: root.simpan()
+            on_press: root.simpan_data()

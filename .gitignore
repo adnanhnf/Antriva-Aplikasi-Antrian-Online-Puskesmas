@@ -1,3 +1,10 @@
 env_projek/
 Wireframe/Petugas/NavigasiBar/__pycache__/
+Wireframe/Petugas/DetaildanTambah/__pycache__/
 Wireframe/Pasien/NavigasiBar/__pycache__/
+Wireframe/Pasien/__pycache__/
+Wireframe/Petugas/__pycache__/
+Wireframe/__pycache__/
+Wireframe/config.txt
+Wireframe/config.py
+Wireframe/firebase_admin_sdk.json

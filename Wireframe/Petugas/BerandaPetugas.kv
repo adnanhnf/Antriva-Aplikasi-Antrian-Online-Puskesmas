@@ -1,154 +1,134 @@
-<BerandaScreen>:
+<BerandaPetugasScreen>:  # Tampilan Beranda Petugas !!
     orientation: 'vertical'
-
     canvas.before:
         Color:
-            rgba: 0.95, 0.95, 0.95, 1  # Light gray background
+            rgba: 0.95, 0.95, 0.95, 1  
         Rectangle:
             pos: self.pos
             size: self.size
 
-    # Header Section
+    # Header 
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
-        height: 70
-        padding: 10
-
-        canvas.before:
-            Color:
-                rgba: 0.9, 0.9, 0.9, 1  # Warna abu-abu muda untuk seluruh background header
-            RoundedRectangle:
-                size: self.size
-                pos: self.pos
-                radius: [10, 10, 0, 0]  # Bagian atas kotak melengkung seperti di gambar
-
+        height: 60
+        padding: [10, 10]
+        pos_hint: {'top': 1}
+        spacing: 5
         Image:
-            source: 'path_to_your_logo.png'  # Ganti dengan path logo
+            source: 'Image/Home.png'
             size_hint: None, None
-            size: 50, 50
+            size: 40, 40
             pos_hint: {'center_y': 0.5}
-
+            color: 0.2, 0.2, 0.2, 0.6
+            
         Label:
-            text: '   Beranda'
-            font_size: '24sp'
-            bold: True
-            color: 0.2, 0.2, 0.2, 1
-            valign: 'middle'
-            halign: 'left'
-            size_hint_x: 1
-            text_size: self.size  # Agar teks bisa align dengan benar
-
-    # Main Content
-    BoxLayout:
-        orientation: 'vertical'
-        padding: [20, 10]
-        spacing: 20
-
-        Label:
-            text: 'Selamat datang, Dokter Afifah!'
+            text: 'Beranda'
             font_size: '20sp'
             bold: True
             color: 0.2, 0.2, 0.2, 1
-            halign: 'center'
+            halign: 'left'
             valign: 'middle'
+            size_hint_x: None
+            width: self.texture_size[0] + dp(10)
+            text_size: None, self.height
 
-        Label:
-            text: 'Lorem ipsum dolor sit amet'
-            font_size: '16sp'
-            color: 0.3, 0.3, 0.3, 1
-            halign: 'center'
-            valign: 'middle'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 0]
 
+        Widget:
+            size_hint_y: 0.3
+
+        # Teks Selamat Datang 
         BoxLayout:
+            orientation: 'vertical'
             size_hint_y: None
-            height: 150
-            padding: [20, 10]
+            height: self.minimum_height
+            spacing: 5
 
-            Image:
-                source: 'path_to_image_1.png'  # Replace with your image path
-                allow_stretch: True
-                keep_ratio: False
+            Label:
+                text: 'Selamat Datang'
+                font_size: '20sp'
+                bold: True
+                color: 0.2, 0.2, 0.2, 1
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
 
+            Label:
+                text: '"Aplikasi Antrian Online Puskesmas"'
+                font_size: '16sp'
+                color: 0.3, 0.3, 0.3, 1
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding: [0, 0, 0, 20]
+
+        Widget:
+            size_hint_y: 0.1
+
+        # Kotak Pertama 
         BoxLayout:
+            orientation: 'vertical'
             size_hint_y: None
-            height: 150
-            padding: [20, 10]
+            height: 270
+            padding: [15, 25, 15, 10]
 
-            Image:
-                source: 'path_to_image_2.png'  # Replace with your image path
-                allow_stretch: True
-                keep_ratio: False
+            canvas.before:
+                Color:
+                    rgba: 0.9, 0.9, 0.9, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
-    # Footer Section
+            Label:
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                text_size: self.width - dp(20), None
+                size_hint_y: None
+                height: self.texture_size[1]
+                halign: 'center'
+                valign: 'middle'
+                font_size: '20sp'
+                padding_y: dp(60)  
+                color: 0.3, 0.3, 0.3, 1
+
+        Widget:
+            size_hint_y: 0.1
+
+        # Kotak Kedua
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 270
+            padding: [15, 15]
+
+            canvas.before:
+                Color:
+                    rgba: 0.9, 0.9, 0.9, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        Widget:
+            size_hint_y: 0.35
+
+    # Footer Navigasi Bar
     BoxLayout:
         orientation: 'horizontal'
         size_hint_y: None
-        height: 100  # Tinggi footer, bisa disesuaikan
-        padding: [20, 10]
-        spacing: 30
-
-        canvas.before:
-            Color:
-                rgba: 0.9, 0.9, 0.9, 1  # Warna abu-abu muda untuk background footer
-            RoundedRectangle:
-                size: self.size
-                pos: self.pos
-                radius: [0, 0, 10, 10]  # Bagian bawah kotak melengkung
-
-        # Tombol "Beranda"
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 10
-            Image:
-                source: 'path_to_image_icon_beranda.png'  # Ganti dengan ikon yang sesuai
-                size_hint: None, None
-                size: 50, 50
-                allow_stretch: True
-                pos_hint: {'center_x': 0.5}
-
-            Button:
-                text: 'BERANDA'
-                background_normal: ''
-                background_color: 0.7, 0.7, 0.7, 1
-                size_hint_y: None
-                height: 40
-                on_press: app.root.current = 'beranda'
-
-        # Tombol "Info Antrian"
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 10
-            Image:
-                source: 'path_to_image_icon_antrian.png'  # Ganti dengan ikon yang sesuai
-                size_hint: None, None
-                size: 50, 50
-                allow_stretch: True
-                pos_hint: {'center_x': 0.5}
-
-            Button:
-                text: 'INFO ANTRIAN'
-                background_normal: ''
-                background_color: 0.7, 0.7, 0.7, 1
-                size_hint_y: None
-                height: 40
-                on_press: root.go_to_info_antrian()
-
-        # Tombol "Kelola Pasien"
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: 10
-            Image:
-                source: 'path_to_image_icon_pasien.png'  # Ganti dengan ikon yang sesuai
-                size_hint: None, None
-                size: 50, 50
-                allow_stretch: True
-                pos_hint: {'center_x': 0.5}
-
-            Button:
-                text: 'KELOLA PASIEN'
-                background_normal: ''
-                background_color: 0.7, 0.7, 0.7, 1
-                size_hint_y: None
-                height: 40
-                on_press: root.go_to_kelola_pasien()
+        height: 60
+        padding: [10, 10]
+        spacing: 20
+        Button:
+            text: 'Beranda'
+            font_size: '14sp'
+            on_press: app.root.current = 'beranda_petugas'
+        Button:
+            text: 'Info Antrian'
+            font_size: '14sp'
+            on_press: app.root.current = 'informasi_antrian'
+        Button:
+            text: 'KelolaPasien'
+            font_size: '14sp'
+            on_press: app.root.current = 'kelola_pasien'
