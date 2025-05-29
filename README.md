@@ -50,7 +50,7 @@
 Gambar 1. Tampilan Antarmuka Beranda Petugas
 </p>
 
-
+<br><br>
 
 <p align="center"><img src="https://imgur.com/MrlKjFf.png" width="300"></p>
 <p align="center" style="font-size:12px; color:gray;">
