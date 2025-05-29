@@ -1,6 +1,8 @@
+<p align="center"><img src="https://imgur.com/CDyCXhR.png" width="350"></p>
+
 # 🏥 Antriva - Aplikasi Antrian Online Puskesmas
 
-**Antriva** adalah aplikasi antrian online yang dirancang untuk mempermudah proses pendaftaran dan pengelolaan antrian di Puskesmas. Aplikasi ini dikembangkan menggunakan Python dan Kivy, dengan desain visual berbentuk wireframe, serta didukung oleh Firebase sebagai database utama. Antriva bertujuan memberikan pengalaman antrian yang lebih praktis dan efisien bagi pasien maupun petugas Puskesmas. Pengguna dapat mengambil nomor antrian secara online, melihat estimasi waktu, dan petugas dapat mengelola antrian secara langsung melalui aplikasi. Desain wireframe memudahkan pengembangan antarmuka pengguna yang sederhana dan intuitif.
+> **Antriva** adalah aplikasi antrian online yang dirancang untuk mempermudah proses pendaftaran dan pengelolaan antrian di Puskesmas. Aplikasi ini dikembangkan menggunakan Python dan Kivy, dengan desain visual berbentuk wireframe, serta didukung oleh Firebase sebagai database utama. Antriva bertujuan memberikan pengalaman antrian yang lebih praktis dan efisien bagi pasien maupun petugas Puskesmas. Pengguna dapat mengambil nomor antrian secara online, melihat estimasi waktu, dan petugas dapat mengelola antrian secara langsung melalui aplikasi. Desain wireframe memudahkan pengembangan antarmuka pengguna yang sederhana dan intuitif.
 
 ---
 
