@@ -43,6 +43,16 @@
 
 ---
 
+## 📲 Contoh Tampilan Antarmuka
+
+- Antarmuka Beranda Petugas
+<p align="center"><img src="https://imgur.com/YBp4Hf1.png" width="300"></p>
+
+- Antarmuka Beranda Pasien
+<p align="center"><img src="https://imgur.com/MrlKjFf.png" width="300"></p>
+
+---
+
 ## ⚙️ Fitur Utama
 
 - Antrian online untuk pasien  
