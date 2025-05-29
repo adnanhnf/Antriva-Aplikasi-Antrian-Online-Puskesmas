@@ -45,11 +45,16 @@
 
 ## 📲 Contoh Tampilan Antarmuka
 
-- Antarmuka Beranda Petugas
 <p align="center"><img src="https://imgur.com/YBp4Hf1.png" width="300"></p>
+<p align="center" style="font-size:12px; color:gray;">
+Gambar 1. Tampilan Antarmuka Beranda Petugas
+</p>
 
-- Antarmuka Beranda Pasien
+
 <p align="center"><img src="https://imgur.com/MrlKjFf.png" width="300"></p>
+<p align="center" style="font-size:12px; color:gray;">
+Gambar 2. Tampilan Antarmuka Beranda Pasien
+</p>
 
 ---
 
