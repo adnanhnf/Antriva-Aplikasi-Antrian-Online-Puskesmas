@@ -26,7 +26,8 @@
 8. **Tambahkan akun pasien dan petugas** melalui Firebase Authentication (manual via Firebase Console):  
    - Pastikan setiap user memiliki field **`role`** di Firebase Realtime Database:  
      - `role: pasien` untuk akun pasien  
-     - `role: petugas` untuk akun petugas  
+     - `role: petugas` untuk akun petugas
+   - Saat akan menjalankan program, pastikan sudah berada di folder **Wireframe**.
    - Aplikasi akan membaca role ini dan mengarahkan pengguna ke tampilan yang sesuai.  
 9. Setelah login, pasien bisa mengambil nomor antrian, sedangkan petugas bisa memantau dan memanggil nomor antrian.
 
