@@ -1,4 +1,4 @@
-<p align="center"><img src="https://imgur.com/CDyCXhR.png" width="350"></p>
+<p align="center"><img src="https://imgur.com/CDyCXhR.png" width="300"></p>
 
 # 🏥 Antriva - Aplikasi Antrian Online Puskesmas
 
