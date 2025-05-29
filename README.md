@@ -22,12 +22,12 @@
 4. Buat **file kredensial (service account)** dari Firebase dan simpan di folder `firebase/`.  
 5. Edit file `config.py` untuk mengatur koneksi ke Firebase, termasuk path file kredensial dan nama database.  
 6. Install semua dependensi menggunakan perintah `pip install -r requirements.txt`.  
-7. Jalankan aplikasi dengan menjalankan file `main.py`.  
+7. Jalankan aplikasi dengan menjalankan file `main.py` berada di dalam folder `Wireframe`.  
 8. **Tambahkan akun pasien dan petugas** melalui Firebase Authentication (manual via Firebase Console):  
    - Pastikan setiap user memiliki field **`role`** di Firebase Realtime Database:  
      - `role: pasien` untuk akun pasien  
      - `role: petugas` untuk akun petugas
-   - Saat akan menjalankan program, pastikan sudah berada di folder **Wireframe**.
+   - Saat akan menjalankan program, pastikan sudah berada di folder `Wireframe`.
    - Aplikasi akan membaca role ini dan mengarahkan pengguna ke tampilan yang sesuai.  
 9. Setelah login, pasien bisa mengambil nomor antrian, sedangkan petugas bisa memantau dan memanggil nomor antrian.
 
@@ -35,11 +35,11 @@
 
 ## 📂 Struktur Folder Proyek
 
-- `main.py` – File utama aplikasi  
+- `main.py` – File utama aplikasi
+- `Wireframe` - Folder tampilan dan sebagainya terdiri dari role milik Pasien dan Petugas
 - `config.py` – Pengaturan Firebase dan path file kredensial  
-- `screens/` – Folder berisi tampilan layar (login, antrian, dashboard petugas, dll)  
 - `firebase/` – Folder tempat file JSON kredensial Firebase  
-- `assets/` – Folder ikon, gambar, atau file pendukung  
+- `image/` – Folder ikon, gambar, atau file pendukung  
 - `requirements.txt` – Daftar dependensi Python  
 
 ---
@@ -64,7 +64,7 @@
 
 - Antrian online untuk pasien  
 - Login dan otentikasi menggunakan Firebase  
-- Sistem role (pasien & petugas) untuk membedakan tampilan  
+- Sistem role (pasien dan petugas) untuk membedakan tampilan  
 - Pemanggilan dan penyelesaian antrian oleh petugas  
 - Estimasi waktu tunggu bagi pasien  
 - Desain wireframe yang sederhana dan mudah dikembangkan  
