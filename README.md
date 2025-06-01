@@ -44,19 +44,7 @@
 
 ---
 
-## 📲 Contoh Tampilan Antarmuka
 
-<p align="center"><img src="https://imgur.com/YBp4Hf1.png" width="300"></p>
-<p align="center" style="font-size:10px; color:gray;">
-<em> Gambar 1. Tampilan Antarmuka Beranda Petugas </em>
-</p>
-
-<br><br>
-
-<p align="center"><img src="https://imgur.com/MrlKjFf.png" width="300"></p>
-<p align="center" style="font-size:10px; color:gray;">
-<em> Gambar 2. Tampilan Antarmuka Beranda Pasien </em>
-</p>
 
 ---
 
