@@ -6,7 +6,7 @@
 
 ---
 
-## 🛠 Teknologi yang Digunakan
+## 🛠 Tools yang Digunakan
 
 - Python + Kivy untuk antarmuka pengguna  
 - Firebase Realtime Database untuk penyimpanan data antrian  
